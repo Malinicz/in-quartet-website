@@ -10,8 +10,9 @@ const theme = {
   spacing: 15,
   inputHeight: 40,
   inputRadius: 20,
-  fontPrimary: '',
+  fontPrimary: 'MuliRegular',
   fontPrimaryBold: '',
+  fontSecondary: 'MitrRegular',
 };
 
 export default theme;
