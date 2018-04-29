@@ -3,7 +3,7 @@ import { oneOf } from 'prop-types';
 import styled, { ThemeProvider } from '~/styles';
 import Theme from '~/styles/theme';
 
-import { Header } from '~/components';
+import { Header, IntroSection } from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
 
@@ -29,11 +29,7 @@ export class Layout extends Component {
             handleToggleMenu={this.onToggleMenu}
           />
           <main>
-            <section>
-              here goes intro section
-              <div>logo image</div>
-              <h1>kwartet smyczkowy</h1>
-            </section>
+            <IntroSection />
             <section>
               <article>
                 <header>

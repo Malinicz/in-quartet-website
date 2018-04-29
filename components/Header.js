@@ -10,8 +10,11 @@ import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
 const HeaderHolder = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: ${props => props.theme.spacing}px;
-  background-color: ${props => props.theme.colors.dark};
+  position: relative;
+  z-index: 2;
+  padding: ${props => props.theme.spacing * 2}px;
+  height: 65px;
+  box-sizing: border-box;
 `;
 
 export const Header = ({ language, isMenuActive, handleToggleMenu }) => {
