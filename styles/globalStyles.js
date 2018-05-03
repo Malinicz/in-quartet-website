@@ -17,7 +17,7 @@ injectGlobal`
       padding: 0;
       font-family: 'MuliRegular';
       font-size: 16px;
-      color: #000000; 
+      color: #000000;
   }
 
   * {

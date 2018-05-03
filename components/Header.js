@@ -21,7 +21,10 @@ export const Header = ({ language, isMenuActive, handleToggleMenu }) => {
   return (
     <HeaderHolder>
       <LanguageSwitch activeLanguage={language} />
-      <MenuButton handleToggleMenu={handleToggleMenu} />
+      <MenuButton
+        handleToggleMenu={handleToggleMenu}
+        isMenuActive={isMenuActive}
+      />
       <Navigation isVisible={isMenuActive} />
     </HeaderHolder>
   );

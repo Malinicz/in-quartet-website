@@ -38,7 +38,6 @@ const CrazyBackground = styled(BackgroundHolder)`
 
 const Logo = styled.img`
   position: relative;
-  z-index: 2;
   width: 400px;
   margin: 0;
   padding: 0;
@@ -49,7 +48,6 @@ const Logo = styled.img`
 
 const Title = styled(H1)`
   position: relative;
-  z-index: 2;
   margin: 0 0 1em 0;
   font-size: 1.2em;
   transition: transform 0.5s ease;
