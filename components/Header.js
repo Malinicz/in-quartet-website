@@ -14,7 +14,6 @@ const HeaderHolder = styled.header`
   z-index: 2;
   padding: ${props => props.theme.spacing * 2}px;
   height: 65px;
-  box-sizing: border-box;
 `;
 
 export const Header = ({ language, isMenuActive, handleToggleMenu }) => {

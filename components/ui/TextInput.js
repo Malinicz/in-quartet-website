@@ -9,6 +9,5 @@ export const TextInput = styled.input`
   margin-top: ${props => props.theme.spacing}px;
   margin-right: ${props => props.theme.spacing}px;
   width: 100%;
-  box-sizing: border-box;
   font-size: 16px;
 `;

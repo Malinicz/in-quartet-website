@@ -30,7 +30,7 @@ const Block = styled.div`
   height: ${props => (props.isVisible ? props.height : '0%')};
   background-color: ${props => props.theme.colors.lightDark};
   opacity: ${props => (props.isVisible ? 0.98 : 0)};
-  transition: 0.5s ease height, 0.4s ease opacity;
+  transition: 0.5s ease height, 0.6s ease opacity;
   transition-delay: ${props => props.delay}s;
 `;
 
@@ -74,7 +74,7 @@ const MenuItem = styled.li`
 
 const LinkElement = styled.a`
   position: relative;
-  font-family: 'MitrRegular';
+  font-family: ${props => props.theme.fontSecondary};
   font-size: 2em;
   text-transform: uppercase;
   transition: 0.3s color ease;
@@ -86,9 +86,9 @@ const LinkElement = styled.a`
     position: absolute;
     z-index: -1;
     top: 95%;
-    right: 50%;
+    right: 51%;
     bottom: -6%;
-    left: 50%;
+    left: 51%;
     background-color: ${props => props.theme.colors.darkDark};
     transition: 0.3s right ease, 0.3s left ease;
   }

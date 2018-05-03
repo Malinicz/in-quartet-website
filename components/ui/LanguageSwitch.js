@@ -21,7 +21,6 @@ const LanguageCell = styled.div`
   width: 35px;
   border: ${props =>
     props.isActive ? `2px solid ${props.theme.colors.lightLight}` : 'none'};
-  box-sizing: border-box;
   cursor: pointer;
 `;
 

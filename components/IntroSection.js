@@ -9,11 +9,10 @@ const IntroSectionHolder = styled(Section)`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin-top: -65px;
   width: 100%;
   height: 100vh;
+  max-width: initial !important;
   color: ${props => props.theme.colors.lightLight};
-  box-sizing: border-box;
 `;
 
 const BackgroundHolder = styled.div`

@@ -9,10 +9,11 @@ const theme = {
     primary: '#ffcfcf',
   },
   spacing: 15,
+  maxWidth: 900,
   inputHeight: 40,
   inputRadius: 20,
   fontPrimary: 'MuliRegular',
-  fontPrimaryBold: '',
+  fontPrimaryBold: 'MuliBold',
   fontSecondary: 'MitrRegular',
 };
 

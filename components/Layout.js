@@ -3,7 +3,8 @@ import { oneOf } from 'prop-types';
 import styled, { ThemeProvider } from '~/styles';
 import Theme from '~/styles/theme';
 
-import { Header, IntroSection } from '~/components';
+import { Main, Section } from '~/components/ui';
+import { Header, Footer, IntroSection, AboutUsSection } from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
 
@@ -28,82 +29,10 @@ export class Layout extends Component {
             isMenuActive={isMenuActive}
             handleToggleMenu={this.onToggleMenu}
           />
-          <main>
+          <Main>
             <IntroSection />
-            <section>
-              <article>
-                <header>
-                  <h2>O kwartecie</h2>
-                  <p>
-                    Jesteśmy absolwentkami najlepszych Akademii Muzycznych w
-                    kraju, kształconymi u wybitnych profesorów.{' '}
-                  </p>
-                </header>
-                <p>
-                  Każda może się poszczycić nagrodami w konkursach solowych i
-                  kameralnych oraz kursami mistrzowskimi u najlepszych pedagogów
-                  z Polski i świata. Co równie ważne, od lat wykonujemy swój
-                  zawód w praktyce, współpracując z czołowymi orkiestrami i
-                  wykonawcami przy projektach koncertowych i nagraniach, a
-                  niejednokrotnie grając na scenie z gwiazdami polskiej muzyki
-                  rozrywkowej, Edytą Górniak, Sebastianem Karpielem-Bułecką,
-                  Kubą Badachem, Justyną Steczkowską, Kayah i innymi.
-                </p>
-              </article>
-              <section>
-                <article>
-                  <header>
-                    <h3>Justyna</h3>
-                    <p>altówka</p>
-                  </header>
-                  <p>
-                    Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje
-                    z wieloma krakowskimi orkiestrami, jest też stażystką
-                    drugiej edycji Akademii Baltic Neopolis Orchestra. Lubi
-                    stawiać sobie wyzwania. Dyplomowana altowiolistka, a wkrótce
-                    także skrzypaczka.
-                  </p>
-                </article>
-                <article>
-                  <header>
-                    <h3>Dominika</h3>
-                    <p>wiolonczela</p>
-                  </header>
-                  <p>
-                    Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze
-                    daje impuls do działania i jest solidną bazą zespołu. Jej
-                    pasją jest muzyka kameralna, na której polu zdobywa liczne
-                    laury. W wolnym czasie uwielbia chodzić po górach. Od
-                    niedawna krakowianka.
-                  </p>
-                </article>
-                <article>
-                  <header>
-                    <h3>Ania</h3>
-                    <p>skrzypce</p>
-                  </header>
-                  <p>
-                    Gdyby nie skrzypce zostałaby prawdopodobnie sportsmenką. Na
-                    nasze szczęście wybrała muzykę, choć sport kocha do dziś.
-                    Skrzypaczka w Orkiestrze Akademii Beethovenowskiej,
-                    nauczyciel gry na skrzypcach, również metodą Suzuki.
-                  </p>
-                </article>
-                <article>
-                  <header>
-                    <h3>Ola</h3>
-                    <p>skrzypce</p>
-                  </header>
-                  <p>
-                    Całe życie gra pierwsze skrzypce. Związana na stałe z
-                    Orkiestrą Akademii Beethovenowskiej, z pasją kształci też
-                    pokolenia młodych skrzypków. W wolnych chwilach z
-                    przyjemnością oddaje się dobrej lekturze oraz filmowi.
-                  </p>
-                </article>
-              </section>
-            </section>
-            <section>
+            <AboutUsSection />
+            <Section>
               <article>
                 <header>
                   <h2>Oferta</h2>
@@ -126,8 +55,8 @@ export class Layout extends Component {
                   Po inspiracje zapraszamy do zakładki Multimedia.
                 </p>
               </article>
-            </section>
-            <section>
+            </Section>
+            <Section>
               <article>
                 <header>
                   <h2>Współpraca</h2>
@@ -139,15 +68,15 @@ export class Layout extends Component {
                 </p>
                 <p>Zapraszamy do kontaktu!</p>
               </article>
-            </section>
-            <section>
+            </Section>
+            <Section>
               <h2>Multimedia</h2>
               <section>
                 <div>audio player goes here</div>
               </section>
               <section>gallery goes here</section>
-            </section>
-            <section>
+            </Section>
+            <Section>
               <h2>kontakt</h2>
               <div>
                 <p>Dominika Szczypka</p>
@@ -166,24 +95,9 @@ export class Layout extends Component {
                 <textarea />
                 <button>Wyślij</button>
               </form>
-            </section>
-          </main>
-          <footer>
-            <div>
-              <div>in quartet logo</div>
-              <nav>
-                <ul>
-                  <li>menu item 1</li>
-                  <li>menu item 2</li>
-                  <li>menu item 3</li>
-                </ul>
-              </nav>
-            </div>
-            <div>
-              <div>social icons</div>
-              <div>malinowski logo</div>
-            </div>
-          </footer>
+            </Section>
+          </Main>
+          <Footer />
         </Wrapper>
       </ThemeProvider>
     );
