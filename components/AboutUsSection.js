@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from '~/styles';
 
 import { Section, H2 } from '~/components/ui';
+import { Gallery } from '~/components';
 
 const AboutUsSectionHolder = styled(Section)`
   display: grid;
@@ -26,7 +27,7 @@ const SectionPeople = styled.section`
 const SectionTitle = styled(H2)`
   position: absolute;
   top: -1.6em;
-  left: -1em;
+  left: 0;
   font-size: 3.5em;
 `;
 
@@ -35,7 +36,7 @@ const Background = styled.div`
   top: 0;
   right: -1000px;
   bottom: 0;
-  left: 0;
+  left: 50px;
   z-index: -1;
   background-image: url('/static/images/gradient-gray.png');
   background-size: cover;
@@ -81,6 +82,7 @@ export class AboutUsSection extends Component {
           <Background />
         </SectionDescription>
         <SectionPeople>
+          <Gallery />
           <article>
             <header>
               <h3>Justyna</h3>
