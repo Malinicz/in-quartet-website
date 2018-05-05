@@ -3,6 +3,7 @@ import { object } from 'prop-types';
 import styled from '~/styles';
 
 import Description from './Description';
+import AnimatedBox from './AnimatedBox';
 
 const GalleryHolder = styled.div`
   position: relative;
@@ -58,7 +59,9 @@ const DescriptionBox = styled(GenericItem)`
 `;
 
 const DescriptionBoxSibling = styled(GenericItem)`
+  position: relative;
   width: ${props => (props.isActive ? '0%' : '20%')};
+  height: ${props => (props.isActive ? '0%' : '100%')};
 `;
 
 export class Gallery extends Component {
@@ -89,8 +92,10 @@ export class Gallery extends Component {
       <GalleryHolder>
         <Wrapper isTranslated={isTranslated}>
           <Row>
-            <GenericItem />
-            <PhotoBoxSibling isActive={activeRow === 1} />
+            <DescriptionBoxSibling>
+              <AnimatedBox isVisible={activeRow === 4} />
+            </DescriptionBoxSibling>
+            <DescriptionBoxSibling isActive={activeRow === 1} />
             <PhotoBox
               id={1}
               imageUrl={data[1].imageUrl}
@@ -105,12 +110,17 @@ export class Gallery extends Component {
                 body={data[1].body}
               />
             </DescriptionBox>
-            <DescriptionBoxSibling isActive={activeRow === 1} />
+            <DescriptionBoxSibling isActive={activeRow === 1}>
+              <AnimatedBox isVisible={activeRow === 3} />
+            </DescriptionBoxSibling>
             <DescriptionBoxSibling isActive={activeRow === 1} />
           </Row>
+
           <Row>
             <DescriptionBoxSibling isActive={activeRow === 2} />
-            <DescriptionBoxSibling isActive={activeRow === 2} />
+            <DescriptionBoxSibling isActive={activeRow === 2}>
+              <AnimatedBox isVisible={activeRow !== 1 && activeRow !== 3} />
+            </DescriptionBoxSibling>
             <DescriptionBox isActive={activeRow === 2}>
               <Description
                 isActive={activeRow === 2}
@@ -127,11 +137,16 @@ export class Gallery extends Component {
               isActive={activeRow === 2}
             />
             <PhotoBoxSibling isActive={activeRow === 2} />
-            <GenericItem />
+            <DescriptionBoxSibling>
+              <AnimatedBox delay={20} isVisible={activeRow !== 2} />
+            </DescriptionBoxSibling>
           </Row>
+
           <Row>
-            <GenericItem />
-            <PhotoBoxSibling isActive={activeRow === 3} />
+            <DescriptionBoxSibling>
+              <AnimatedBox isVisible={activeRow === 2} />
+            </DescriptionBoxSibling>
+            <DescriptionBoxSibling isActive={activeRow === 3} />
             <PhotoBox
               id={3}
               imageUrl={data[3].imageUrl}
@@ -146,12 +161,20 @@ export class Gallery extends Component {
                 body={data[3].body}
               />
             </DescriptionBox>
-            <DescriptionBoxSibling isActive={activeRow === 3} />
+            <DescriptionBoxSibling isActive={activeRow === 3}>
+              <AnimatedBox
+                delay={10}
+                isVisible={activeRow !== 2 && activeRow !== 4}
+              />
+            </DescriptionBoxSibling>
             <DescriptionBoxSibling isActive={activeRow === 3} />
           </Row>
+
           <Row>
             <DescriptionBoxSibling isActive={activeRow === 4} />
-            <DescriptionBoxSibling isActive={activeRow === 4} />
+            <DescriptionBoxSibling isActive={activeRow === 4}>
+              <AnimatedBox isVisible={activeRow === 2} />
+            </DescriptionBoxSibling>
             <DescriptionBox isActive={activeRow === 4}>
               <Description
                 isActive={activeRow === 4}
