@@ -21,7 +21,7 @@ const bodyMoveIn = keyframes`
   0% { opacity: 0}
   1% { top: 200px}
   20% {opacity: 0 }
-  100% { opacity: 1; top: 100px}
+  100% { opacity: 1; top: 80px}
 `;
 
 const bodyMoveOut = keyframes`

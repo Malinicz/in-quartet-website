@@ -4,4 +4,4 @@ export { Layout } from './Layout';
 export { Navigation } from './Navigation';
 export { IntroSection } from './IntroSection';
 export { AboutUsSection } from './AboutUsSection';
-export { Gallery } from './Gallery';
+export { TeamGallery } from './TeamGallery';

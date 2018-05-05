@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
+import { objectOf, shape, string } from 'prop-types';
 import styled from '~/styles';
 
 import Description from './Description';
 import AnimatedBox from './AnimatedBox';
 
-const GalleryHolder = styled.div`
+const TeamGalleryHolder = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -43,42 +43,39 @@ const PhotoBox = styled(GenericItem)`
   background-image: ${props => `url("${props.imageUrl}")`};
   background-size: cover;
   width: ${props => (props.isActive ? '40%' : '20%')};
-`;
-
-const PhotoBoxSibling = styled(GenericItem)`
-  width: ${props => (props.isActive ? '0%' : '20%')};
+  cursor: pointer;
 `;
 
 const DescriptionBox = styled(GenericItem)`
   position: relative;
+  z-index: 2;
   width: ${props => (props.isActive ? '60%' : '20%')};
+  cursor: pointer;
 
   &::before {
     padding-top: 0%;
   }
 `;
 
-const DescriptionBoxSibling = styled(GenericItem)`
+const ReactiveBox = styled(GenericItem)`
   position: relative;
   width: ${props => (props.isActive ? '0%' : '20%')};
   height: ${props => (props.isActive ? '0%' : '100%')};
 `;
 
-export class Gallery extends Component {
+export class TeamGallery extends Component {
   state = { isTranslated: false, activeRow: 0 };
 
-  toggleEvenRowClick = e => {
-    const id = e.target.id;
+  toggleEvenRowClick = id => {
     this.setState(prevState => {
       const activeRow = parseInt(id) === prevState.activeRow ? 0 : parseInt(id);
       return { isTranslated: activeRow === 0 ? false : true, activeRow };
     });
   };
 
-  toggleOddRowClick = e => {
-    const id = e.target.id;
+  toggleOddRowClick = id => {
     this.setState(prevState => {
-      const activeRow = parseInt(id) === prevState.activeRow ? 0 : parseInt(id);
+      const activeRow = id === prevState.activeRow ? 0 : id;
 
       return { isTranslated: false, activeRow };
     });
@@ -89,20 +86,23 @@ export class Gallery extends Component {
     const { data } = this.props;
 
     return (
-      <GalleryHolder>
+      <TeamGalleryHolder>
         <Wrapper isTranslated={isTranslated}>
           <Row>
-            <DescriptionBoxSibling>
+            <ReactiveBox>
               <AnimatedBox isVisible={activeRow === 4} />
-            </DescriptionBoxSibling>
-            <DescriptionBoxSibling isActive={activeRow === 1} />
+            </ReactiveBox>
+            <ReactiveBox isActive={activeRow === 1} />
             <PhotoBox
-              id={1}
               imageUrl={data[1].imageUrl}
-              onClick={this.toggleOddRowClick}
+              onClick={() => this.toggleOddRowClick(1)}
               isActive={activeRow === 1}
             />
-            <DescriptionBox isActive={activeRow === 1}>
+            <DescriptionBox
+              id={1}
+              isActive={activeRow === 1}
+              onClick={() => this.toggleOddRowClick(1)}
+            >
               <Description
                 isActive={activeRow === 1}
                 title={data[1].title}
@@ -110,18 +110,22 @@ export class Gallery extends Component {
                 body={data[1].body}
               />
             </DescriptionBox>
-            <DescriptionBoxSibling isActive={activeRow === 1}>
+            <ReactiveBox isActive={activeRow === 1}>
               <AnimatedBox isVisible={activeRow === 3} />
-            </DescriptionBoxSibling>
-            <DescriptionBoxSibling isActive={activeRow === 1} />
+            </ReactiveBox>
+            <ReactiveBox isActive={activeRow === 1} />
           </Row>
 
           <Row>
-            <DescriptionBoxSibling isActive={activeRow === 2} />
-            <DescriptionBoxSibling isActive={activeRow === 2}>
-              <AnimatedBox isVisible={activeRow !== 1 && activeRow !== 3} />
-            </DescriptionBoxSibling>
-            <DescriptionBox isActive={activeRow === 2}>
+            <ReactiveBox isActive={activeRow === 2} />
+            <ReactiveBox isActive={activeRow === 2}>
+              <AnimatedBox isVisible={activeRow === 0 || activeRow === 4} />
+            </ReactiveBox>
+            <DescriptionBox
+              id={2}
+              isActive={activeRow === 2}
+              onClick={() => this.toggleEvenRowClick(2)}
+            >
               <Description
                 isActive={activeRow === 2}
                 isEven={true}
@@ -133,27 +137,31 @@ export class Gallery extends Component {
             <PhotoBox
               id={2}
               imageUrl={data[2].imageUrl}
-              onClick={this.toggleEvenRowClick}
+              onClick={() => this.toggleEvenRowClick(2)}
               isActive={activeRow === 2}
             />
-            <PhotoBoxSibling isActive={activeRow === 2} />
-            <DescriptionBoxSibling>
+            <ReactiveBox isActive={activeRow === 2} />
+            <ReactiveBox>
               <AnimatedBox delay={20} isVisible={activeRow !== 2} />
-            </DescriptionBoxSibling>
+            </ReactiveBox>
           </Row>
 
           <Row>
-            <DescriptionBoxSibling>
+            <ReactiveBox>
               <AnimatedBox isVisible={activeRow === 2} />
-            </DescriptionBoxSibling>
-            <DescriptionBoxSibling isActive={activeRow === 3} />
+            </ReactiveBox>
+            <ReactiveBox isActive={activeRow === 3} />
             <PhotoBox
               id={3}
               imageUrl={data[3].imageUrl}
-              onClick={this.toggleOddRowClick}
+              onClick={() => this.toggleOddRowClick(3)}
               isActive={activeRow === 3}
             />
-            <DescriptionBox isActive={activeRow === 3}>
+            <DescriptionBox
+              id={3}
+              isActive={activeRow === 3}
+              onClick={() => this.toggleOddRowClick(3)}
+            >
               <Description
                 isActive={activeRow === 3}
                 title={data[3].title}
@@ -161,21 +169,25 @@ export class Gallery extends Component {
                 body={data[3].body}
               />
             </DescriptionBox>
-            <DescriptionBoxSibling isActive={activeRow === 3}>
+            <ReactiveBox isActive={activeRow === 3}>
               <AnimatedBox
                 delay={10}
-                isVisible={activeRow !== 2 && activeRow !== 4}
+                isVisible={activeRow === 0 || activeRow === 1}
               />
-            </DescriptionBoxSibling>
-            <DescriptionBoxSibling isActive={activeRow === 3} />
+            </ReactiveBox>
+            <ReactiveBox isActive={activeRow === 3} />
           </Row>
 
           <Row>
-            <DescriptionBoxSibling isActive={activeRow === 4} />
-            <DescriptionBoxSibling isActive={activeRow === 4}>
+            <ReactiveBox isActive={activeRow === 4} />
+            <ReactiveBox isActive={activeRow === 4}>
               <AnimatedBox isVisible={activeRow === 2} />
-            </DescriptionBoxSibling>
-            <DescriptionBox isActive={activeRow === 4}>
+            </ReactiveBox>
+            <DescriptionBox
+              id={4}
+              isActive={activeRow === 4}
+              onClick={() => this.toggleEvenRowClick(4)}
+            >
               <Description
                 isActive={activeRow === 4}
                 isEven={true}
@@ -187,18 +199,25 @@ export class Gallery extends Component {
             <PhotoBox
               id={4}
               imageUrl={data[4].imageUrl}
-              onClick={this.toggleEvenRowClick}
+              onClick={() => this.toggleEvenRowClick(4)}
               isActive={activeRow === 4}
             />
-            <PhotoBoxSibling isActive={activeRow === 4} />
+            <ReactiveBox isActive={activeRow === 4} />
             <GenericItem />
           </Row>
         </Wrapper>
-      </GalleryHolder>
+      </TeamGalleryHolder>
     );
   }
 }
 
-Gallery.propTypes = {
-  data: object,
+TeamGallery.propTypes = {
+  data: objectOf(
+    shape({
+      imageUrl: string,
+      title: string,
+      subtitle: string,
+      body: string,
+    }),
+  ),
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from '~/styles';
 
 import { Section, H2 } from '~/components/ui';
-import { Gallery } from '~/components';
+import { TeamGallery } from '~/components';
 
 import aboutUsData from './content';
 
@@ -84,7 +84,7 @@ export class AboutUsSection extends Component {
           <Background />
         </SectionDescription>
         <SectionPeople>
-          <Gallery data={aboutUsData} />
+          <TeamGallery data={aboutUsData} />
         </SectionPeople>
       </AboutUsSectionHolder>
     );
