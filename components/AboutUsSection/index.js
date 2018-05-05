@@ -4,6 +4,8 @@ import styled from '~/styles';
 import { Section, H2 } from '~/components/ui';
 import { Gallery } from '~/components';
 
+import aboutUsData from './content';
+
 const AboutUsSectionHolder = styled(Section)`
   display: grid;
   grid-template-columns: ${props => `auto ${props.theme.maxWidth}px auto`};
@@ -82,7 +84,7 @@ export class AboutUsSection extends Component {
           <Background />
         </SectionDescription>
         <SectionPeople>
-          <Gallery />
+          <Gallery data={aboutUsData} />
           <article>
             <header>
               <h3>Justyna</h3>
