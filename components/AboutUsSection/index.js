@@ -85,54 +85,6 @@ export class AboutUsSection extends Component {
         </SectionDescription>
         <SectionPeople>
           <Gallery data={aboutUsData} />
-          <article>
-            <header>
-              <h3>Justyna</h3>
-              <p>altówka</p>
-            </header>
-            <p>
-              Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje z
-              wieloma krakowskimi orkiestrami, jest też stażystką drugiej edycji
-              Akademii Baltic Neopolis Orchestra. Lubi stawiać sobie wyzwania.
-              Dyplomowana altowiolistka, a wkrótce także skrzypaczka.
-            </p>
-          </article>
-          <article>
-            <header>
-              <h3>Dominika</h3>
-              <p>wiolonczela</p>
-            </header>
-            <p>
-              Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze daje
-              impuls do działania i jest solidną bazą zespołu. Jej pasją jest
-              muzyka kameralna, na której polu zdobywa liczne laury. W wolnym
-              czasie uwielbia chodzić po górach. Od niedawna krakowianka.
-            </p>
-          </article>
-          <article>
-            <header>
-              <h3>Ania</h3>
-              <p>skrzypce</p>
-            </header>
-            <p>
-              Gdyby nie skrzypce zostałaby prawdopodobnie sportsmenką. Na nasze
-              szczęście wybrała muzykę, choć sport kocha do dziś. Skrzypaczka w
-              Orkiestrze Akademii Beethovenowskiej, nauczyciel gry na
-              skrzypcach, również metodą Suzuki.
-            </p>
-          </article>
-          <article>
-            <header>
-              <h3>Ola</h3>
-              <p>skrzypce</p>
-            </header>
-            <p>
-              Całe życie gra pierwsze skrzypce. Związana na stałe z Orkiestrą
-              Akademii Beethovenowskiej, z pasją kształci też pokolenia młodych
-              skrzypków. W wolnych chwilach z przyjemnością oddaje się dobrej
-              lekturze oraz filmowi.
-            </p>
-          </article>
         </SectionPeople>
       </AboutUsSectionHolder>
     );

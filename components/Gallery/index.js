@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import styled from '~/styles';
 
 import Description from './Description';
@@ -92,16 +93,16 @@ export class Gallery extends Component {
             <PhotoBoxSibling isActive={activeRow === 1} />
             <PhotoBox
               id={1}
-              imageUrl="/static/images/photo1.jpg"
+              imageUrl={data[1].imageUrl}
               onClick={this.toggleOddRowClick}
               isActive={activeRow === 1}
             />
             <DescriptionBox isActive={activeRow === 1}>
               <Description
                 isActive={activeRow === 1}
-                title={data.ania.title}
-                subtitle={data.ania.subtitle}
-                body={data.ania.body}
+                title={data[1].title}
+                subtitle={data[1].subtitle}
+                body={data[1].body}
               />
             </DescriptionBox>
             <DescriptionBoxSibling isActive={activeRow === 1} />
@@ -113,14 +114,15 @@ export class Gallery extends Component {
             <DescriptionBox isActive={activeRow === 2}>
               <Description
                 isActive={activeRow === 2}
-                title={data.dominika.title}
-                subtitle={data.dominika.subtitle}
-                body={data.dominika.body}
+                isEven={true}
+                title={data[2].title}
+                subtitle={data[2].subtitle}
+                body={data[2].body}
               />
             </DescriptionBox>
             <PhotoBox
               id={2}
-              imageUrl="/static/images/photo2.jpg"
+              imageUrl={data[2].imageUrl}
               onClick={this.toggleEvenRowClick}
               isActive={activeRow === 2}
             />
@@ -132,16 +134,16 @@ export class Gallery extends Component {
             <PhotoBoxSibling isActive={activeRow === 3} />
             <PhotoBox
               id={3}
-              imageUrl="/static/images/photo3.jpg"
+              imageUrl={data[3].imageUrl}
               onClick={this.toggleOddRowClick}
               isActive={activeRow === 3}
             />
             <DescriptionBox isActive={activeRow === 3}>
               <Description
                 isActive={activeRow === 3}
-                title={data.ola.title}
-                subtitle={data.ola.subtitle}
-                body={data.ola.body}
+                title={data[3].title}
+                subtitle={data[3].subtitle}
+                body={data[3].body}
               />
             </DescriptionBox>
             <DescriptionBoxSibling isActive={activeRow === 3} />
@@ -153,14 +155,15 @@ export class Gallery extends Component {
             <DescriptionBox isActive={activeRow === 4}>
               <Description
                 isActive={activeRow === 4}
-                title={data.justyna.title}
-                subtitle={data.justyna.subtitle}
-                body={data.justyna.body}
+                isEven={true}
+                title={data[4].title}
+                subtitle={data[4].subtitle}
+                body={data[4].body}
               />
             </DescriptionBox>
             <PhotoBox
               id={4}
-              imageUrl="/static/images/photo4.jpg"
+              imageUrl={data[4].imageUrl}
               onClick={this.toggleEvenRowClick}
               isActive={activeRow === 4}
             />
@@ -172,3 +175,7 @@ export class Gallery extends Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  data: object,
+};

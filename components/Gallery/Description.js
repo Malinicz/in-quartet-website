@@ -6,8 +6,8 @@ import { H3 } from '~/components/ui';
 
 const headerMoveIn = keyframes`
   0% { opacity: 0; }
-  1% { top: 15px; left: 15px; transform: translate(0,-100px) }
-  100% { top: 15px; left: 15px; transform: translate(0,0)}
+  1% { top: 0; left: 0; transform: translate(0,-100px) }
+  100% { top: 0; left: 0; transform: translate(0,0)}
 `;
 
 const headerMoveOut = keyframes`
@@ -30,7 +30,7 @@ const bodyMoveOut = keyframes`
 `;
 
 const DescriptionHolder = styled.article`
-  padding: ${props => props.theme.spacing}px;
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -41,9 +41,12 @@ const DescriptionHeader = styled.header`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: ${props => props.theme.spacing}px;
+  width: 100%;
   animation: ${props =>
-    props.isActive ? `${headerMoveIn} 0.7s ease` : `${headerMoveOut} 1s ease`};
+    props.isActive ? `${headerMoveIn} 0.65s ease` : `${headerMoveOut} 1s ease`};
   animation-fill-mode: forwards;
+  text-align: ${props => (props.isEven ? 'right' : 'left')};
 `;
 
 const Title = styled(H3)`
@@ -58,25 +61,35 @@ const Subtitle = styled.p`
 
 const DescriptionBody = styled.p`
   position: absolute;
+  padding: ${props => props.theme.spacing}px;
+  text-align: ${props => (props.isEven ? 'right' : 'left')};
   animation: ${props =>
     props.isActive ? `${bodyMoveIn} 0.7s ease` : `${bodyMoveOut} 2s ease`};
   animation-fill-mode: forwards;
 `;
 
-const Description = ({ isActive, title, subtitle, body }) => {
+const Description = ({ isActive, isEven, title, subtitle, body }) => {
   return (
     <DescriptionHolder>
-      <DescriptionHeader isActive={isActive}>
+      <DescriptionHeader isActive={isActive} isEven={isEven}>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
       </DescriptionHeader>
-      <DescriptionBody isActive={isActive}>{body}</DescriptionBody>
+      <DescriptionBody isActive={isActive} isEven={isEven}>
+        {body}
+      </DescriptionBody>
     </DescriptionHolder>
   );
 };
 
+Description.defaultProps = {
+  isActive: false,
+  isEven: false,
+};
+
 Description.propTypes = {
   isActive: bool.isRequired,
+  isEven: bool,
   title: string,
   subtitle: string,
   body: string,
