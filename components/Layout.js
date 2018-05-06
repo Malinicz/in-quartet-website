@@ -10,6 +10,7 @@ import {
   IntroSection,
   AboutUsSection,
   OurOfferSection,
+  CooperationSection,
 } from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
@@ -39,19 +40,7 @@ export class Layout extends Component {
             <IntroSection />
             <AboutUsSection />
             <OurOfferSection />
-            <Section>
-              <article>
-                <header>
-                  <h2>Współpraca</h2>
-                </header>
-                <p>
-                  Jako zespół jesteśmy ukierunkowane na szerokie działanie,
-                  również w ramach projektów autorskich, wydarzeń koncertowych i
-                  kulturalnych współtworzonych z instytucjami i artystami.
-                </p>
-                <p>Zapraszamy do kontaktu!</p>
-              </article>
-            </Section>
+            <CooperationSection />
             <Section>
               <h2>Multimedia</h2>
               <section>

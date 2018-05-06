@@ -42,7 +42,8 @@ export class OurOfferSection extends Component {
             to tylko część okoliczności, które możemy uświetnić swoimi
             umiejętnościami. Niezależnie od wydarzenia gwarantujemy, że każde
             wykonanie będzie niepowtarzalne i na długo pozostanie w pamięci i
-            sercach. Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe
+            sercach. <br />
+            <br /> Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe
             standardy? Decyzja należy do Państwa. Ze względu na duże
             doświadczenie z chęcią doradzimy w kwestiach repertuarowych w
             zależności od okazji. Jeśli jednak mają Państwo konkretne pomysły
