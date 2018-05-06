@@ -8,3 +8,4 @@ export { IntroSection } from './IntroSection';
 export { AboutUsSection } from './AboutUsSection';
 export { OurOfferSection } from './OurOfferSection';
 export { CooperationSection } from './CooperationSection';
+export { MultimediaSection } from './MultimediaSection';

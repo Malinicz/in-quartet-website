@@ -11,6 +11,7 @@ import {
   AboutUsSection,
   OurOfferSection,
   CooperationSection,
+  MultimediaSection,
 } from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
@@ -41,13 +42,7 @@ export class Layout extends Component {
             <AboutUsSection />
             <OurOfferSection />
             <CooperationSection />
-            <Section>
-              <h2>Multimedia</h2>
-              <section>
-                <div>audio player goes here</div>
-              </section>
-              <section>gallery goes here</section>
-            </Section>
+            <MultimediaSection />
             <Section>
               <h2>kontakt</h2>
               <div>

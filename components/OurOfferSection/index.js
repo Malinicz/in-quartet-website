@@ -21,6 +21,7 @@ const StyledSectionDescription = styled(SectionDescription)`
 
 const PhotoHolder = styled.article`
   grid-area: content;
+  margin-bottom: -100px;
 `;
 
 const Photo = styled.img`

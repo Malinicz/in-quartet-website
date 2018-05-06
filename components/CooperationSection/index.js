@@ -19,14 +19,17 @@ const StyledBackground = styled(Background)`
 const StyledSectionDescription = styled(SectionDescription)`
   padding-left: 0;
   padding-top: 50px;
-  max-width: 600px;
 `;
 
 const ViolinImage = styled.img`
   position: absolute;
   top: -420px;
-  right: -450px;
+  right: -140px;
   height: 700px;
+`;
+
+const Paragraph = styled.p`
+  max-width: 500px;
 `;
 
 export class CooperationSection extends Component {
@@ -37,12 +40,12 @@ export class CooperationSection extends Component {
           <DescriptionHeader>
             <SectionTitle>Współpraca</SectionTitle>
           </DescriptionHeader>
-          <p>
+          <Paragraph>
             Jako zespół jesteśmy ukierunkowane na szerokie działanie, również w
             ramach projektów autorskich, wydarzeń koncertowych i kulturalnych
             współtworzonych z instytucjami i artystami.
-          </p>
-          <p>Zapraszamy do kontaktu!</p>
+          </Paragraph>
+          <Paragraph>Zapraszamy do kontaktu!</Paragraph>
           <StyledBackground />
           <ViolinImage src="/static/images/violin-pink.svg" />
         </StyledSectionDescription>
