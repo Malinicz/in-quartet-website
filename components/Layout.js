@@ -4,7 +4,13 @@ import styled, { ThemeProvider } from '~/styles';
 import Theme from '~/styles/theme';
 
 import { Main, Section } from '~/components/ui';
-import { Header, Footer, IntroSection, AboutUsSection } from '~/components';
+import {
+  Header,
+  Footer,
+  IntroSection,
+  AboutUsSection,
+  OurOfferSection,
+} from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
 
@@ -32,30 +38,7 @@ export class Layout extends Component {
           <Main>
             <IntroSection />
             <AboutUsSection />
-            <Section>
-              <article>
-                <header>
-                  <h2>Oferta</h2>
-                  <p>Eventy, śluby, bankiety...</p>
-                </header>
-                <p>
-                  Oprawa muzyczna ślubu, przyjęcia, bankietu czy spotkania
-                  firmowego to tylko część okoliczności, które możemy uświetnić
-                  swoimi umiejętnościami. Niezależnie od wydarzenia
-                  gwarantujemy, że każde wykonanie będzie niepowtarzalne i na
-                  długo pozostanie w pamięci i sercach.
-                </p>
-                <p>
-                  Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe
-                  standardy? Decyzja należy do Państwa. Ze względu na duże
-                  doświadczenie z chęcią doradzimy w kwestiach repertuarowych w
-                  zależności od okazji. Jeśli jednak mają Państwo konkretne
-                  pomysły czy marzenia związane z oprawą muzyczną swojej
-                  uroczystości lub wydarzenia - jesteśmy otwarte na propozycje.
-                  Po inspiracje zapraszamy do zakładki Multimedia.
-                </p>
-              </article>
-            </Section>
+            <OurOfferSection />
             <Section>
               <article>
                 <header>

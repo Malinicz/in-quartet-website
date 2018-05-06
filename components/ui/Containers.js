@@ -7,7 +7,3 @@ export const Main = styled.main`
 export const ContainerWithPaddingHolder = styled.div`
   padding: ${props => props.theme.spacing}px;
 `;
-
-export const Section = styled.section`
-  padding: ${props => props.theme.spacing}px;
-`;
