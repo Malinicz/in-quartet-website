@@ -142,7 +142,12 @@ export class TeamGallery extends Component {
             />
             <ReactiveBox isActive={activeRow === 2} />
             <ReactiveBox>
-              <AnimatedBox delay={20} isVisible={activeRow !== 2} />
+              <AnimatedBox
+                delay={20}
+                isVisible={
+                  activeRow === 1 || activeRow === 3 || activeRow === 0
+                }
+              />
             </ReactiveBox>
           </Row>
 
