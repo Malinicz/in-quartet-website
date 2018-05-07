@@ -3,6 +3,7 @@ export { Footer } from './Footer';
 export { Layout } from './Layout';
 export { Navigation } from './Navigation';
 export { TeamGallery } from './TeamGallery';
+export { PhotoGallery } from './PhotoGallery';
 
 export { IntroSection } from './IntroSection';
 export { AboutUsSection } from './AboutUsSection';

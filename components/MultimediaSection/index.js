@@ -8,6 +8,7 @@ import {
   SectionTitle,
   Background,
 } from '~/components/ui';
+import { PhotoGallery } from '~/components';
 
 const StyledSectionHolder = styled(SectionHolder)`
   margin-top: 150px;
@@ -31,6 +32,11 @@ const StyledSectionTitle = styled(SectionTitle)`
   left: auto;
 `;
 
+const PhotoGallerySection = styled.section`
+  width: 100%;
+  grid-area: content;
+`;
+
 export class MultimediaSection extends Component {
   render() {
     return (
@@ -41,6 +47,9 @@ export class MultimediaSection extends Component {
           </DescriptionHeader>
           <StyledBackground />
         </StyledSectionDescription>
+        <PhotoGallerySection>
+          <PhotoGallery />
+        </PhotoGallerySection>
       </StyledSectionHolder>
     );
   }
