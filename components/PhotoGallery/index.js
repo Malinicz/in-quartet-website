@@ -88,10 +88,10 @@ export class PhotoGallery extends Component {
     // const { data } = this.props;
 
     const data = [
-      { imageUrl: `${baseUrl}/photo1.jpg`, isHorizontal: false },
-      { imageUrl: `${baseUrl}/photo2.jpg`, isHorizontal: false },
+      { imageUrl: `${baseUrl}/photo1.jpg`, isHorizontal: true },
+      { imageUrl: `${baseUrl}/photo2.jpg`, isHorizontal: true },
       { imageUrl: `${baseUrl}/photo3.jpg`, isHorizontal: true },
-      { imageUrl: `${baseUrl}/photo4.jpg`, isHorizontal: true },
+      { imageUrl: `${baseUrl}/photo4.jpg`, isHorizontal: false },
     ];
 
     return (
@@ -114,15 +114,19 @@ export class PhotoGallery extends Component {
               isHorizontal={data[0].isHorizontal}
             />
             <ReactiveBox isActive={activeRow === 0}>
-              <AnimatedBox isVisible={false} />
+              <AnimatedBox isVisible={activeRow === 2 || activeRow === 3} />
             </ReactiveBox>
-            <ReactiveBox isActive={activeRow === 0 && !data[0].isHorizontal} />
+            <ReactiveBox isActive={activeRow === 0 && !data[0].isHorizontal}>
+              <AnimatedBox
+                isVisible={!data[1].isHorizontal && activeRow === 1}
+              />
+            </ReactiveBox>
           </Row>
 
           <Row>
             <ReactiveBox isActive={activeRow === 1} />
             <ReactiveBox isActive={activeRow === 1 && !data[1].isHorizontal}>
-              <AnimatedBox isVisible={false} />
+              <AnimatedBox isVisible={activeRow === -1 || activeRow === 3} />
             </ReactiveBox>
             <PhotoBoxSibling
               id={1}
@@ -138,13 +142,20 @@ export class PhotoGallery extends Component {
             />
             <ReactiveBox isActive={activeRow === 1} />
             <ReactiveBox isActive={activeRow === 1 && data[1].isHorizontal}>
-              <AnimatedBox delay={20} isVisible={false} />
+              <AnimatedBox
+                delay={20}
+                isVisible={
+                  activeRow === -1 ||
+                  (!isTranslated && (activeRow === 0 || activeRow === 2)) ||
+                  activeRow === 3
+                }
+              />
             </ReactiveBox>
           </Row>
 
           <Row>
             <ReactiveBox isActive={activeRow === 2 && data[2].isHorizontal}>
-              <AnimatedBox isVisible={false} />
+              <AnimatedBox isVisible={activeRow === 0} delay={15} />
             </ReactiveBox>
             <ReactiveBox isActive={activeRow === 2} />
             <PhotoBox
@@ -159,15 +170,26 @@ export class PhotoGallery extends Component {
               isHorizontal={data[2].isHorizontal}
             />
             <ReactiveBox isActive={activeRow === 2}>
-              <AnimatedBox isVisible={false} />
+              <AnimatedBox
+                isVisible={activeRow === -1 || activeRow === 0}
+                delay={10}
+              />
             </ReactiveBox>
-            <ReactiveBox isActive={activeRow === 2 && !data[2].isHorizontal} />
+            <ReactiveBox isActive={activeRow === 2 && !data[2].isHorizontal}>
+              <AnimatedBox
+                isVisible={!data[1].isHorizontal && activeRow === 1}
+                delay={7}
+              />
+            </ReactiveBox>
           </Row>
 
           <Row>
             <ReactiveBox isActive={activeRow === 3} />
             <ReactiveBox isActive={activeRow === 3 && !data[3].isHorizontal}>
-              <AnimatedBox isVisible={false} />
+              <AnimatedBox
+                isVisible={activeRow === 0 || activeRow === 1}
+                delay={3}
+              />
             </ReactiveBox>
             <PhotoBoxSibling
               id={3}
@@ -196,7 +218,7 @@ PhotoGallery.propTypes = {
   data: arrayOf(
     shape({
       imageUrl: string,
-      isHorizontal: bool
+      isHorizontal: bool,
     }),
   ),
 };
