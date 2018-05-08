@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import styled from '~/styles';
 
 import GalleryChunk from './GalleryChunk';
 
 const baseUrl = '/static/images/multimedia';
 
-const data = [
+//TODO refactor this component
+
+const dataSet1 = [
   { imageUrl: `${baseUrl}/photo1.jpg`, isHorizontal: true },
   { imageUrl: `${baseUrl}/photo2.jpg`, isHorizontal: true },
   { imageUrl: `${baseUrl}/photo3.jpg`, isHorizontal: true },
-  { imageUrl: `${baseUrl}/photo4.jpg`, isHorizontal: false },
+  { imageUrl: `${baseUrl}/photo4.jpg`, isHorizontal: true },
+];
+
+const dataSet2 = [
+  { imageUrl: `${baseUrl}/photo5.jpg`, isHorizontal: true },
+  { imageUrl: `${baseUrl}/photo6.jpg`, isHorizontal: true },
+  { imageUrl: `${baseUrl}/photo7.jpg`, isHorizontal: true },
+  { imageUrl: `${baseUrl}/photo8.jpg`, isHorizontal: true },
 ];
 
 export class PhotoGallery extends Component {
@@ -52,7 +60,7 @@ export class PhotoGallery extends Component {
       <React.Fragment>
         <GalleryChunk
           chunkId={0}
-          data={data}
+          data={dataSet1}
           handleTranslate={this.onTranslate}
           handlePhotoClick={this.togglePhotoClick}
           activeRow={activeRow[0]}
@@ -60,7 +68,7 @@ export class PhotoGallery extends Component {
         />
         <GalleryChunk
           chunkId={1}
-          data={data}
+          data={dataSet2}
           activeRow={activeRow[1]}
           handleTranslate={this.onTranslate}
           handlePhotoClick={this.togglePhotoClick}
