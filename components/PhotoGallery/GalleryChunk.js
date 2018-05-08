@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, shape, string, bool, func } from 'prop-types';
+import { arrayOf, shape, string, bool, func, number } from 'prop-types';
 import styled from '~/styles';
 
 import AnimatedBox from './AnimatedBox';
@@ -68,27 +68,13 @@ const ReactiveBox = styled(GenericItem)`
 class GalleryChunk extends Component {
   state = { isTranslated: false, activeRow: -1 };
 
-  togglePhotoClick = (id, isPhotoHorizontal) => {
-    const { handleTranslate } = this.props;
-
-    this.setState(prevState => {
-      const activeRow = id === prevState.activeRow ? -1 : id;
-      const isAnyExpanded = activeRow !== -1;
-      const isRowOdd = id % 2 === 0;
-
-      isRowOdd && isPhotoHorizontal && isAnyExpanded
-        ? handleTranslate(true)
-        : handleTranslate(false);
-
-      return {
-        activeRow,
-      };
-    });
+  togglePhotoClick = (photoId, isPhotoHorizontal) => {
+    const { chunkId, handlePhotoClick } = this.props;
+    handlePhotoClick(chunkId, photoId, isPhotoHorizontal);
   };
 
   render() {
-    const { activeRow } = this.state;
-    const { isTranslated, data } = this.props;
+    const { isTranslated, data, activeRow } = this.props;
 
     return (
       <GalleryChunkHolder>
@@ -211,8 +197,11 @@ class GalleryChunk extends Component {
 }
 
 GalleryChunk.propTypes = {
+  chunkId: number,
+  activeRow: number,
   isTranslated: bool,
   handleTranslate: func.isRequired,
+  handlePhotoClick: func.isRequired,
   data: arrayOf(
     shape({
       imageUrl: string,
