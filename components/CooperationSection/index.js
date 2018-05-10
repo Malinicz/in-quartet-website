@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from '~/styles';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 import {
   SectionHolder,
   SectionDescription,
@@ -47,7 +49,7 @@ export class CooperationSection extends Component {
           </Paragraph>
           <Paragraph>Zapraszamy do kontaktu!</Paragraph>
           <StyledBackground />
-          <ViolinImage src="/static/images/violin-pink.svg" />
+          <ViolinImage src={`${IMAGES_URL}/violin-pink.svg`} />
         </StyledSectionDescription>
       </SectionHolder>
     );

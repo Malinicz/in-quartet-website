@@ -3,6 +3,8 @@ import styled from '~/styles';
 
 import { Section, H1 } from '~/components/ui';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 const IntroSectionHolder = styled(Section)`
   position: relative;
   display: flex;
@@ -26,12 +28,12 @@ const BackgroundHolder = styled.div`
 `;
 
 const NormalBackground = styled(BackgroundHolder)`
-  background-image: url('/static/images/intro.jpg');
+  background-image: ${`url(${IMAGES_URL}/intro.jpg)`};
   opacity: ${props => (props.isCrazy ? 0 : 1)};
 `;
 
 const CrazyBackground = styled(BackgroundHolder)`
-  background-image: url('/static/images/intro-crazy.jpg');
+  background-image: ${`url(${IMAGES_URL}/intro-crazy.jpg)`};
   opacity: ${props => (props.isCrazy ? 1 : 0)};
 `;
 
@@ -68,7 +70,7 @@ export class IntroSection extends Component {
         <NormalBackground isCrazy={isCrazy} />
         <CrazyBackground isCrazy={isCrazy} />
         <Logo
-          src="/static/images/logo-white.svg"
+          src={`${IMAGES_URL}/logo-white.svg`}
           onClick={this.toggleCraziness}
           isCrazy={isCrazy}
         />

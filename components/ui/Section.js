@@ -2,6 +2,8 @@ import styled from '~/styles';
 
 import { H2 } from '~/components/ui';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 export const Section = styled.section`
   padding: ${props => props.theme.spacing}px;
 `;
@@ -41,7 +43,7 @@ export const Background = styled.div`
   bottom: 0;
   left: 50px;
   z-index: -1;
-  background-image: url('/static/images/gradient-gray.png');
+  background-image: url('${IMAGES_URL}/gradient-gray.png');
   background-size: cover;
 `;
 

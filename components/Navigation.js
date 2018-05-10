@@ -4,6 +4,8 @@ import styled, { keyframes } from '~/styles';
 
 import navigationConfig from '~/constants/navigationConfig';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 const violinFlash = keyframes`
   0% { opacity: 0.02;}
   50% {opacity: 0.06;}
@@ -105,7 +107,7 @@ export const Navigation = ({ isVisible }) => {
   return (
     <NavigationHolder isVisible={isVisible}>
       <ViolinImage
-        src="/static/images/violin-black.svg"
+        src={`${IMAGES_URL}/violin-black.svg`}
         isVisible={isVisible}
       />
       <Block top={0} height="40%" isVisible={isVisible} />

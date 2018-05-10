@@ -3,17 +3,17 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
   @font-face {
      font-family: 'MitrRegular';
-     src: url('./static/fonts/Mitr-Regular.ttf');
+     src: url('static/fonts/Mitr-Regular.ttf');
   }
 
   @font-face {
      font-family: 'MuliRegular';
-     src: url('./static/fonts/Muli-Regular.ttf');
+     src: url('static/fonts/Muli-Regular.ttf');
   }
 
   @font-face {
      font-family: 'MuliBold';
-     src: url('./static/fonts/Muli-Bold.ttf');
+     src: url('static/fonts/Muli-Bold.ttf');
   }
 
   body {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { number, bool } from 'prop-types';
 import styled, { keyframes } from '~/styles';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 const colorAnimation = props => keyframes`
     0% {background-color: ${props.theme.colors.lightDark}}
     50% { background-color: ${props.theme.colors.primary}}
@@ -39,8 +41,10 @@ class AnimatedBox extends Component {
 
     return (
       <AnimatedBoxHolder delay={delay} isVisible={isVisible}>
-        <ViolinShape src="/static/images/about-us/violin-shape.png" />
-        <ViolinShapeFlipped src="/static/images/about-us/violin-shape-flipped.png" />
+        <ViolinShape src={`${IMAGES_URL}/about-us/violin-shape.png`} />
+        <ViolinShapeFlipped
+          src={`${IMAGES_URL}/about-us/violin-shape-flipped.png`}
+        />
       </AnimatedBoxHolder>
     );
   }

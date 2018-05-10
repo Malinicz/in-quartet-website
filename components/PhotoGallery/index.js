@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import GalleryChunk from './GalleryChunk';
 
-const baseUrl = '/static/images/multimedia';
+import { IMAGES_URL } from '~/constants/paths';
+
+const baseUrl = `${IMAGES_URL}/multimedia`;
 
 //TODO refactor this component
 

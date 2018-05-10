@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from '~/styles';
 
+import { IMAGES_URL } from '~/constants/paths';
+
 import {
   SectionHolder,
   SectionDescription,
@@ -12,7 +14,7 @@ import {
 } from '~/components/ui';
 
 const PinkGradient = styled(Background)`
-  background-image: url('/static/images/gradient-pink.png');
+  background-image: url('${IMAGES_URL}/gradient-pink.png');
 `;
 
 const StyledSectionDescription = styled(SectionDescription)`
@@ -55,7 +57,7 @@ export class OurOfferSection extends Component {
           <PinkGradient />
         </StyledSectionDescription>
         <PhotoHolder>
-          <Photo src="/static/images/our-offer/team-in-pink.jpg" />
+          <Photo src={`${IMAGES_URL}/our-offer/team-in-pink.jpg`} />
         </PhotoHolder>
       </SectionHolder>
     );
