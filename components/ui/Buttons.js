@@ -1,16 +1,12 @@
-import React from 'react';
 import styled from '~/styles';
-import { node, string, oneOfType, number } from 'prop-types';
 
-export const ButtonHolder = styled.button``;
+export const Button = styled.button`
+  background-color: ${props => props.theme.colors.primary};
+  border-radius: ${props => props.theme.inputRadius}px;
+  transition: 0.3s background-color ease;
+  cursor: pointer;
 
-export const Button = ({ children, margin }) => {
-  return <ButtonHolder margin={margin}>{children}</ButtonHolder>;
-};
-
-Button.propTypes = {
-  children: node,
-  margin: oneOfType([string, number]),
-};
-
-export default Button;
+  &:hover {
+    background-color: ${props => props.theme.colors.primaryDark};
+  }
+`;

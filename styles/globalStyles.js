@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+import theme from '~/styles/theme';
 
 injectGlobal`
   @font-face {
@@ -24,6 +25,11 @@ injectGlobal`
     font-size: 16px;
     color: #000000;
     overflow-x: hidden;
+  }
+
+  a {
+    color: ${theme.colors.primaryDark};
+    text-decoration: none;
   }
 
   * {

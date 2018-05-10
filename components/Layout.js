@@ -3,7 +3,7 @@ import { oneOf } from 'prop-types';
 import styled, { ThemeProvider } from '~/styles';
 import Theme from '~/styles/theme';
 
-import { Main, Section } from '~/components/ui';
+import { Main } from '~/components/ui';
 import {
   Header,
   Footer,
@@ -12,6 +12,7 @@ import {
   OurOfferSection,
   CooperationSection,
   MultimediaSection,
+  ContactSection,
 } from '~/components';
 
 import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
@@ -43,26 +44,7 @@ export class Layout extends Component {
             <OurOfferSection />
             <CooperationSection />
             <MultimediaSection />
-            <Section>
-              <h2>kontakt</h2>
-              <div>
-                <p>Dominika Szczypka</p>
-                <a href="tel:+48603540013">603 540 013</a>
-              </div>
-              <div>
-                <p>Justyna Poprawska</p>
-                <a href="tel:+48501303089">501 303 089</a>
-              </div>
-              <form>
-                <label>Email *</label>
-                <input type="text" />
-                <label>Imię</label>
-                <input type="text" />
-                <label>Treść wiadomości *</label>
-                <textarea />
-                <button>Wyślij</button>
-              </form>
-            </Section>
+            <ContactSection />
           </Main>
           <Footer />
         </Wrapper>
