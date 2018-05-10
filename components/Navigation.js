@@ -76,6 +76,7 @@ const MenuItem = styled.li`
 
 const LinkElement = styled.a`
   position: relative;
+  color: ${props => props.theme.colors.darkDark};
   font-family: ${props => props.theme.fontSecondary};
   font-size: 2em;
   text-transform: uppercase;
