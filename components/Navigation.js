@@ -8,7 +8,7 @@ import { IMAGES_URL } from '~/constants/paths';
 
 const violinFlash = keyframes`
   0% { opacity: 0.02;}
-  50% {opacity: 0.06;}
+  35% {opacity: 0.06;}
   100% {opacity: 0.02;}
 `;
 

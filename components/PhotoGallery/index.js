@@ -25,7 +25,7 @@ const dataSet2 = [
 export class PhotoGallery extends Component {
   constructor(props) {
     super(props);
-    this.state = { isTranslated: false, activeRow: { 0: -1, 1: -1 } };
+    this.state = { isTranslated: true, activeRow: { 0: 0, 1: -1 } };
   }
 
   onTranslate = isTranslated => {
