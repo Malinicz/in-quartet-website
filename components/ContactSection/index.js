@@ -94,23 +94,31 @@ export class ContactSection extends Component {
             <ContactPhone href="tel:+48501303089">+48 501 303 089</ContactPhone>
           </ContactDetails>
 
-          <StyledForm>
+          <StyledForm
+            action="https://formspree.io/malinicz@gmail.com"
+            method="POST"
+          >
             <UserDetails>
               <LabelWithInputHolder>
                 <InputLabel>Email *</InputLabel>
-                <TextInput type="text" />
+                <TextInput type="text" name="_replyto" />
               </LabelWithInputHolder>
               <LabelWithInputHolder>
                 <InputLabel>Imię</InputLabel>
-                <TextInput type="text" />
+                <TextInput type="text" name="name" />
               </LabelWithInputHolder>
             </UserDetails>
             <ContentWithSubmit>
               <LabelWithInputHolder>
                 <InputLabel>Treść wiadomości *</InputLabel>
-                <TextArea rows={6} />
+                <TextArea rows={6} name="content" />
               </LabelWithInputHolder>
-              <StyledButton>
+              <input
+                type="hidden"
+                name="_next"
+                value="http://localhost:3000/email-send-success"
+              />
+              <StyledButton type="submit">
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />
               </StyledButton>
             </ContentWithSubmit>
