@@ -17,6 +17,10 @@ import {
   LabelWithInputHolder,
 } from '~/components/ui';
 
+const StyledSectionHolder = styled(SectionHolder)`
+  padding-bottom: 50px;
+`;
+
 const StyledBackground = styled(Background)`
   top: -50px;
   left: -50px;
@@ -76,7 +80,7 @@ const SubmitIcon = styled.img`
 export class ContactSection extends Component {
   render() {
     return (
-      <SectionHolder>
+      <StyledSectionHolder>
         <StyledSectionDescription>
           <DescriptionHeader>
             <SectionTitle>Kontakt</SectionTitle>
@@ -113,7 +117,7 @@ export class ContactSection extends Component {
           </StyledForm>
           <StyledBackground />
         </StyledSectionDescription>
-      </SectionHolder>
+      </StyledSectionHolder>
     );
   }
 }

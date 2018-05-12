@@ -117,7 +117,7 @@ export const Navigation = ({ isVisible }) => {
       <Block top="90%" height="10%" isVisible={isVisible} />
       <MenuItemsHolder isVisible={isVisible}>
         {navigationConfig.map(navItem => (
-          <MenuItem key={navItem.value}>
+          <MenuItem key={navItem.value} title={navItem.label}>
             <LinkElement to={navItem.value}>{navItem.label}</LinkElement>
           </MenuItem>
         ))}
