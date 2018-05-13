@@ -26,7 +26,7 @@ export const Button = styled.button`
     height: ${MAX_WIDTH}px;
     border-radius: ${MAX_WIDTH}px;
     background: ${props => props.theme.colors.lightLight};
-    transition: all 0.6s;
+    transition: all 0.7s;
     opacity: 0;
   }
 

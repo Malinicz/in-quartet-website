@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from '~/styles';
 
-import { IMAGES_URL } from '~/constants/paths';
-
 import {
   SectionHolder,
   SectionDescription,
@@ -20,7 +18,10 @@ import ValidationIcon from './ValidationIcon';
 
 import validateEmail from './emailValidation';
 
+import { IMAGES_URL, SITE_URL } from '~/constants/paths';
+
 const StyledSectionHolder = styled(SectionHolder)`
+  margin-top: 70px;
   padding-bottom: 50px;
 `;
 
@@ -146,7 +147,7 @@ export class ContactSection extends Component {
               <input
                 type="hidden"
                 name="_next"
-                value="http://localhost:3000/email-send-success"
+                value={`${SITE_URL}/email-send-success`}
               />
               <StyledButton type="submit" disabled={!isEmailValid}>
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />

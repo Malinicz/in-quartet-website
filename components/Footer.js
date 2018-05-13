@@ -13,7 +13,8 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  padding: ${props => `50px ${props.theme.spacing}px`};
+  padding: ${props =>
+    `50px ${props.theme.spacing}px 30px ${props.theme.spacing}px`};
   max-width: ${props => props.theme.maxWidth}px;
 `;
 
