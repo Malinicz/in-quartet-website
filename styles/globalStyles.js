@@ -30,6 +30,10 @@ injectGlobal`
   a {
     color: ${theme.colors.primaryDark};
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   * {

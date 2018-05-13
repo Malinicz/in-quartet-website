@@ -51,9 +51,6 @@ const LinkElement = styled.a`
   text-decoration: none;
   color: ${props => props.theme.colors.darkDark};
   cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const AuthorLogo = styled.img`

@@ -19,6 +19,7 @@ import ValidationIcon from './ValidationIcon';
 import validateEmail from './emailValidation';
 
 import { IMAGES_URL, SITE_URL } from '~/constants/paths';
+import { PL } from '~/constants/supportedLanguages';
 
 const StyledSectionHolder = styled(SectionHolder)`
   margin-top: 70px;
@@ -147,7 +148,7 @@ export class ContactSection extends Component {
               <input
                 type="hidden"
                 name="_next"
-                value={`${SITE_URL}/email-send-success`}
+                value={`${SITE_URL}/email-send-success?language=${PL}`}
               />
               <StyledButton type="submit" disabled={!isEmailValid}>
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />
