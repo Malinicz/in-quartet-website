@@ -3,6 +3,7 @@ import styled from '~/styles';
 export const Form = styled.form``;
 
 export const LabelWithInputHolder = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,7 +16,9 @@ export const InputLabel = styled.label`
 
 export const TextInput = styled.input`
   padding: ${props =>
-    `${props.theme.inputSpacing}px ${props.theme.inputSpacing}px`};
+    `${props.theme.inputSpacing}px ${props.theme.inputSpacing * 6}px ${
+      props.theme.inputSpacing
+    }px ${props.theme.inputSpacing}px`};
   width: 100%;
   height: ${props => props.theme.inputHeight}px;
   border: ${props => `3px solid ${props.theme.colors.primaryDark}`};

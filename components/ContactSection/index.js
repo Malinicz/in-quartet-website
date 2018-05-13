@@ -16,6 +16,9 @@ import {
   Button,
   LabelWithInputHolder,
 } from '~/components/ui';
+import ValidationIcon from './ValidationIcon';
+
+import validateEmail from './emailValidation';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-bottom: 50px;
@@ -71,14 +74,36 @@ const ContentWithSubmit = styled.div`
 const StyledButton = styled(Button)`
   margin: 25px 0 0 15px;
   width: 100px;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 const SubmitIcon = styled.img`
+  position: relative;
+  z-index: 3;
   width: 40px;
 `;
 
 export class ContactSection extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEmailValid: null,
+    };
+  }
+
+  onEmailChange = e => {
+    let isEmailValid = e.target.value.trim()
+      ? validateEmail(e.target.value)
+      : null;
+    this.setState({ isEmailValid });
+  };
+
   render() {
+    const { isEmailValid } = this.state;
+
     return (
       <StyledSectionHolder>
         <StyledSectionDescription>
@@ -101,7 +126,12 @@ export class ContactSection extends Component {
             <UserDetails>
               <LabelWithInputHolder>
                 <InputLabel>Email *</InputLabel>
-                <TextInput type="text" name="_replyto" />
+                <TextInput
+                  type="text"
+                  name="_replyto"
+                  onChange={this.onEmailChange}
+                />
+                <ValidationIcon isValid={isEmailValid} />
               </LabelWithInputHolder>
               <LabelWithInputHolder>
                 <InputLabel>Imię</InputLabel>
@@ -118,7 +148,7 @@ export class ContactSection extends Component {
                 name="_next"
                 value="http://localhost:3000/email-send-success"
               />
-              <StyledButton type="submit">
+              <StyledButton type="submit" disabled={!isEmailValid}>
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />
               </StyledButton>
             </ContentWithSubmit>
