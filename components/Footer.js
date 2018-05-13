@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import styled from '~/styles';
 
 import { IMAGES_URL } from '~/constants/paths';
@@ -47,7 +48,7 @@ const MenuItemsHolder = styled.ul`
 
 const MenuItem = styled.li``;
 
-const LinkElement = styled.a`
+const LinkElement = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.colors.darkDark};
   cursor: pointer;
@@ -65,9 +66,13 @@ export const Footer = () => {
           <img src={`${IMAGES_URL}/logo-black.svg`} />
           <Navigation>
             <MenuItemsHolder>
-              {navigationConfig.map(navItem => (
+              {Object.values(navigationConfig).map(navItem => (
                 <MenuItem key={navItem.value}>
-                  <LinkElement to={navItem.value} title={navItem.label}>
+                  <LinkElement
+                    to={navItem.value}
+                    smooth={true}
+                    title={navItem.label}
+                  >
                     {navItem.label}
                   </LinkElement>
                 </MenuItem>

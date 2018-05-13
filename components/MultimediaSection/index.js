@@ -10,8 +10,10 @@ import {
 } from '~/components/ui';
 import { PhotoGallery } from '~/components';
 
+import navigationConfig from '~/constants/navigationConfig';
+
 const StyledSectionHolder = styled(SectionHolder)`
-  margin-top: 150px;
+  padding-top: 150px;
 `;
 
 const StyledBackground = styled(Background)`
@@ -40,7 +42,7 @@ const PhotoGallerySection = styled.section`
 export class MultimediaSection extends Component {
   render() {
     return (
-      <StyledSectionHolder>
+      <StyledSectionHolder name={navigationConfig.multimedia.value}>
         <StyledSectionDescription>
           <DescriptionHeader>
             <StyledSectionTitle>Multimedia</StyledSectionTitle>

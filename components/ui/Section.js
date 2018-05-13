@@ -16,7 +16,7 @@ export const SectionHolder = styled(Section)`
   grid-template-areas:
     '. description .'
     '. content .';
-  margin-top: 100px;
+  padding-top: 100px;
 `;
 
 export const SectionDescription = styled.article`

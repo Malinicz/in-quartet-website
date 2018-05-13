@@ -24,7 +24,10 @@ export const Header = ({ language, isMenuActive, handleToggleMenu }) => {
         handleToggleMenu={handleToggleMenu}
         isMenuActive={isMenuActive}
       />
-      <Navigation isVisible={isMenuActive} />
+      <Navigation
+        isVisible={isMenuActive}
+        handleToggleMenu={handleToggleMenu}
+      />
     </HeaderHolder>
   );
 };

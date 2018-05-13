@@ -1,10 +1,10 @@
-export default [
-  { label: 'o kwartecie', value: 'o-kwartecie' },
-  { label: 'oferta', value: 'oferta' },
-  { label: 'współpraca', value: 'wspolpraca' },
-  { label: 'multimedia', value: 'multimedia' },
-  { label: 'kontakt', value: 'kontakt' },
-];
+export default {
+  aboutUs: { label: 'o kwartecie', value: 'o-kwartecie' },
+  offer: { label: 'oferta', value: 'oferta' },
+  cooperation: { label: 'współpraca', value: 'wspolpraca' },
+  multimedia: { label: 'multimedia', value: 'multimedia' },
+  contact: { label: 'kontakt', value: 'kontakt' },
+};
 
 export const navigationEnglish = [
   { label: 'about us', value: 'about-us' },

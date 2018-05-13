@@ -11,6 +11,8 @@ import {
   Background,
 } from '~/components/ui';
 
+import navigationConfig from '~/constants/navigationConfig';
+
 const StyledBackground = styled(Background)`
   top: -50px;
   left: -50px;
@@ -37,7 +39,7 @@ const Paragraph = styled.p`
 export class CooperationSection extends Component {
   render() {
     return (
-      <SectionHolder>
+      <SectionHolder name={navigationConfig.cooperation.value}>
         <StyledSectionDescription>
           <DescriptionHeader>
             <SectionTitle>Współpraca</SectionTitle>

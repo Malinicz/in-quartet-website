@@ -13,6 +13,8 @@ import {
   Background,
 } from '~/components/ui';
 
+import navigationConfig from '~/constants/navigationConfig';
+
 const PinkGradient = styled(Background)`
   background-image: url('${IMAGES_URL}/gradient-pink.png');
 `;
@@ -34,7 +36,7 @@ const Photo = styled.img`
 export class OurOfferSection extends Component {
   render() {
     return (
-      <SectionHolder>
+      <SectionHolder name={navigationConfig.offer.value}>
         <StyledSectionDescription>
           <DescriptionHeader>
             <SectionTitle>Oferta</SectionTitle>

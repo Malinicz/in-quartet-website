@@ -14,61 +14,16 @@ import { TeamGallery } from '~/components';
 
 import aboutUsData from './content';
 
-// const AboutUsSectionHolder = styled(Section)`
-//   display: grid;
-//   grid-template-columns: ${props => `auto ${props.theme.maxWidth}px auto`};
-//   grid-template-rows: auto;
-//   grid-template-areas:
-//     '. description .'
-//     '. people .';
-//   margin-top: 100px;
-// `;
-
-// const SectionDescription = styled.article`
-//   position: relative;
-//   grid-area: description;
-//   padding: 70px 0 50px 200px;
-// `;
+import navigationConfig from '~/constants/navigationConfig';
 
 const SectionPeople = styled.section`
   grid-area: content;
 `;
 
-// const SectionTitle = styled(H2)`
-//   position: absolute;
-//   top: -1.6em;
-//   left: 0;
-//   font-size: 3.5em;
-// `;
-
-// const Background = styled.div`
-//   position: absolute;
-//   top: 0;
-//   right: -1000px;
-//   bottom: 0;
-//   left: 50px;
-//   z-index: -1;
-//   background-image: url('/static/images/gradient-gray.png');
-//   background-size: cover;
-// `;
-
-// const DescriptionHeader = styled.header`
-//   padding-bottom: 10px;
-// `;
-
-// const DescriptionContent = styled.p`
-//   column-count: 2;
-//   column-gap: 70px;
-// `;
-
-// const SectionSubtitle = styled.p`
-//   font-family: ${props => props.theme.fontPrimaryBold};
-// `;
-
 export class AboutUsSection extends Component {
   render() {
     return (
-      <SectionHolder>
+      <SectionHolder name={navigationConfig.aboutUs.value}>
         <SectionDescription>
           <DescriptionHeader>
             <SectionTitle>O kwartecie</SectionTitle>

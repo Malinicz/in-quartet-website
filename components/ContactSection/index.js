@@ -21,8 +21,10 @@ import validateEmail from './emailValidation';
 import { IMAGES_URL, SITE_URL } from '~/constants/paths';
 import { PL } from '~/constants/supportedLanguages';
 
+import navigationConfig from '~/constants/navigationConfig';
+
 const StyledSectionHolder = styled(SectionHolder)`
-  margin-top: 70px;
+  padding-top: 70px;
   padding-bottom: 50px;
 `;
 
@@ -107,7 +109,7 @@ export class ContactSection extends Component {
     const { isEmailValid } = this.state;
 
     return (
-      <StyledSectionHolder>
+      <StyledSectionHolder name={navigationConfig.contact.value}>
         <StyledSectionDescription>
           <DescriptionHeader>
             <SectionTitle>Kontakt</SectionTitle>

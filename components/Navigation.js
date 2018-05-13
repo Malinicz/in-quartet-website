@@ -1,6 +1,7 @@
 import React from 'react';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 import styled, { keyframes } from '~/styles';
+import { Link } from 'react-scroll';
 
 import navigationConfig from '~/constants/navigationConfig';
 
@@ -74,12 +75,13 @@ const MenuItem = styled.li`
   }
 `;
 
-const LinkElement = styled.a`
+const LinkElement = styled(Link)`
   position: relative;
   color: ${props => props.theme.colors.darkDark};
   font-family: ${props => props.theme.fontSecondary};
   font-size: 2em;
   text-transform: uppercase;
+  text-decoration: none !important;
   transition: 0.3s color ease;
   line-height: 1.2em;
   cursor: pointer;
@@ -104,7 +106,7 @@ const LinkElement = styled.a`
   }
 `;
 
-export const Navigation = ({ isVisible }) => {
+export const Navigation = ({ isVisible, handleToggleMenu }) => {
   return (
     <NavigationHolder isVisible={isVisible}>
       <ViolinImage
@@ -116,9 +118,15 @@ export const Navigation = ({ isVisible }) => {
       <Block top="70%" height="20%" isVisible={isVisible} />
       <Block top="90%" height="10%" isVisible={isVisible} />
       <MenuItemsHolder isVisible={isVisible}>
-        {navigationConfig.map(navItem => (
+        {Object.values(navigationConfig).map(navItem => (
           <MenuItem key={navItem.value} title={navItem.label}>
-            <LinkElement to={navItem.value}>{navItem.label}</LinkElement>
+            <LinkElement
+              to={navItem.value}
+              smooth="true"
+              onClick={handleToggleMenu}
+            >
+              {navItem.label}
+            </LinkElement>
           </MenuItem>
         ))}
       </MenuItemsHolder>
@@ -128,4 +136,5 @@ export const Navigation = ({ isVisible }) => {
 
 Navigation.propTypes = {
   isVisible: bool.isRequired,
+  handleToggleMenu: func.isRequired,
 };
