@@ -30,6 +30,16 @@ const ViolinImage = styled.img`
   top: -420px;
   right: -140px;
   height: 700px;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    top: -180px;
+    right: -100px;
+    height: 500px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    display: none;
+  }
 `;
 
 const Paragraph = styled.p`

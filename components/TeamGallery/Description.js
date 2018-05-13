@@ -47,6 +47,11 @@ const DescriptionHeader = styled.header`
     props.isActive ? `${headerMoveIn} 0.65s ease` : `${headerMoveOut} 1s ease`};
   animation-fill-mode: forwards;
   text-align: ${props => (props.isEven ? 'right' : 'left')};
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    animation: ${headerMoveIn};
+    animation-fill-mode: forwards;
+  }
 `;
 
 const Title = styled(H3)`
@@ -66,6 +71,11 @@ const DescriptionBody = styled.p`
   animation: ${props =>
     props.isActive ? `${bodyMoveIn} 0.7s ease` : `${bodyMoveOut} 2s ease`};
   animation-fill-mode: forwards;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    animation: ${bodyMoveIn};
+    animation-fill-mode: forwards;
+  }
 `;
 
 const Description = ({ isActive, isEven, title, subtitle, body }) => {

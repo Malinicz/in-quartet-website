@@ -17,6 +17,11 @@ const theme = {
   fontPrimary: 'MuliRegular',
   fontPrimaryBold: 'MuliBold',
   fontSecondary: 'MitrRegular',
+  breakpoints: {
+    navigation: 1150,
+    tablet: 768,
+    mobile: 650,
+  },
 };
 
 export default theme;

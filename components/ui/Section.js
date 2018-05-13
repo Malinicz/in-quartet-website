@@ -17,12 +17,24 @@ export const SectionHolder = styled(Section)`
     '. description .'
     '. content .';
   padding-top: 100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 0;
+  }
 `;
 
 export const SectionDescription = styled.article`
   position: relative;
   grid-area: description;
   padding: 70px 100px 50px 180px;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    padding: 70px 30px 50px 100px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding: 0px 0 30px 0;
+  }
 `;
 
 export const SectionTitle = styled(H2)`
@@ -30,6 +42,12 @@ export const SectionTitle = styled(H2)`
   top: -1.6em;
   left: 0;
   font-size: 3.5em;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    position: relative;
+    top: unset;
+    padding-bottom: 0;
+  }
 `;
 
 export const SectionSubtitle = styled.p`
@@ -45,6 +63,11 @@ export const Background = styled.div`
   z-index: -1;
   background-image: url('${IMAGES_URL}/gradient-gray.png');
   background-size: cover;
+
+    @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    right: -${props => props.theme.spacing}px;
+    left: -${props => props.theme.spacing}px;
+  }
 `;
 
 export const DescriptionHeader = styled.header`
@@ -54,4 +77,8 @@ export const DescriptionHeader = styled.header`
 export const DescriptionContent = styled.p`
   column-count: 2;
   column-gap: 50px;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    column-count: unset;
+  }
 `;

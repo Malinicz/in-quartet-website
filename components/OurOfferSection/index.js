@@ -21,6 +21,10 @@ const PinkGradient = styled(Background)`
 
 const StyledSectionDescription = styled(SectionDescription)`
   padding-bottom: 150px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-bottom: 50px;
+  }
 `;
 
 const PhotoHolder = styled.article`
@@ -28,9 +32,16 @@ const PhotoHolder = styled.article`
   margin-bottom: -100px;
 `;
 
+//TODO use theme.spacing for calculations
 const Photo = styled.img`
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   transform: translate(-50px, -100px);
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: calc(100% + 30px);
+    transform: translate(-15px, 0);
+  }
 `;
 
 export class OurOfferSection extends Component {

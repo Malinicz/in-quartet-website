@@ -23,7 +23,7 @@ const NavigationHolder = styled.nav`
   bottom: 0;
   left: 0;
   visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
-  transition: visibility 0.5s ease;
+  transition: visibility 0.7s ease;
 `;
 
 const Block = styled.div`
@@ -49,12 +49,20 @@ const ViolinImage = styled.img`
 
 const MenuItemsHolder = styled.ul`
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   z-index: 12;
-  top: 45%;
+  top: 50%;
+  padding: 0;
+  transform: translateY(-50%);
   list-style-type: none;
   opacity: ${props => (props.isVisible ? 1 : 0)};
   transition: 0.3s ease opacity;
+
+  @media (max-width: ${props => props.theme.breakpoints.navigation}px) {
+    flex-direction: column;
+  }
 `;
 
 const MenuItem = styled.li`
@@ -65,7 +73,7 @@ const MenuItem = styled.li`
     &::before {
       content: '■';
       font-size: 1.5em;
-      margin: 0 12px;
+      margin-right: 12px;
     }
   }
 
@@ -73,6 +81,21 @@ const MenuItem = styled.li`
     content: '■';
     font-size: 1.5em;
     margin: 0 12px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.navigation}px) {
+    padding: 10px 0;
+
+    &:first-child {
+      &::before {
+        content: '';
+        margin: 0;
+      }
+    }
+    &::after {
+      content: '';
+      margin: 0;
+    }
   }
 `;
 

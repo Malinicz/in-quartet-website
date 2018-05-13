@@ -14,9 +14,22 @@ const TeamGalleryHolder = styled.div`
 `;
 
 const Row = styled.div`
-  display: flex;
   position: relative;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: auto;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    padding-bottom: 50px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    flex-direction: column;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -25,6 +38,11 @@ const Wrapper = styled.div`
   transform: ${props =>
     props.isTranslated ? 'translate3d(0, 0, 0)' : 'translate3d(-16.67%, 0, 0)'};
   transition: 0.3s transform ease;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    transform: none;
+    width: 100%;
+  }
 `;
 
 const GenericItem = styled.div`
@@ -44,6 +62,11 @@ const PhotoBox = styled(GenericItem)`
   background-size: cover;
   width: ${props => (props.isActive ? '40%' : '20%')};
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    width: 40%;
+    pointer-events: none;
+  }
 `;
 
 const DescriptionBox = styled(GenericItem)`
@@ -55,12 +78,21 @@ const DescriptionBox = styled(GenericItem)`
   &::before {
     padding-top: 0%;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    width: 60%;
+    pointer-events: none;
+  }
 `;
 
 const ReactiveBox = styled(GenericItem)`
   position: relative;
   width: ${props => (props.isActive ? '0%' : '20%')};
   height: ${props => (props.isActive ? '0%' : '100%')};
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;
 
 export class TeamGallery extends Component {
@@ -208,7 +240,7 @@ export class TeamGallery extends Component {
               isActive={activeRow === 4}
             />
             <ReactiveBox isActive={activeRow === 4} />
-            <GenericItem />
+            <ReactiveBox />
           </Row>
         </Wrapper>
       </TeamGalleryHolder>
