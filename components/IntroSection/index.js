@@ -46,6 +46,11 @@ const Logo = styled.img`
   transition: transform 0.5s ease;
   transform: ${props => (props.isCrazy ? 'rotate(5deg)' : 'rotate(0deg)')};
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: 100%;
+    max-width: 350px;
+  }
 `;
 
 const Title = styled(H1)`

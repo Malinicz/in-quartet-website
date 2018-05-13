@@ -49,8 +49,12 @@ const DescriptionHeader = styled.header`
   text-align: ${props => (props.isEven ? 'right' : 'left')};
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
-    animation: ${headerMoveIn};
-    animation-fill-mode: forwards;
+    position: static;
+    top: unset;
+    left: unset;
+    transform: none;
+    animation: none;
+    text-align: left;
   }
 `;
 
@@ -73,8 +77,10 @@ const DescriptionBody = styled.p`
   animation-fill-mode: forwards;
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
-    animation: ${bodyMoveIn};
-    animation-fill-mode: forwards;
+    position: static;
+    animation: none;
+    transform: none;
+    text-align: left;
   }
 `;
 

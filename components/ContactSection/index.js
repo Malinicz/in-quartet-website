@@ -26,6 +26,10 @@ import navigationConfig from '~/constants/navigationConfig';
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 70px;
   padding-bottom: 50px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 0;
+  }
 `;
 
 const StyledBackground = styled(Background)`
@@ -33,12 +37,26 @@ const StyledBackground = styled(Background)`
   left: -50px;
   width: 250px;
   height: 140px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    top: 50px;
+    width: 200px;
+    height: 100px;
+  }
 `;
 
 const StyledSectionDescription = styled(SectionDescription)`
   padding-left: 0;
   padding-right: 0;
   padding-top: 100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 30px;
+  }
+`;
+
+const StyledDescriptionHeader = styled(DescriptionHeader)`
+  padding-bottom: 50px;
 `;
 
 const ContactDetails = styled.div`
@@ -69,18 +87,33 @@ const UserDetails = styled.div`
   grid-template-rows: auto;
   grid-column-gap: ${props => props.theme.spacing}px;
   margin-bottom: ${props => props.theme.spacing}px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: 100%;
+    display: block;
+  }
 `;
 
 const ContentWithSubmit = styled.div`
   display: flex;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledButton = styled(Button)`
   margin: 25px 0 0 15px;
   width: 100px;
+  height: ${props => props.theme.inputHeight}px;
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    margin: ${props => `${props.theme.spacing}px 0`};
+    width: 100%;
   }
 `;
 
@@ -88,6 +121,10 @@ const SubmitIcon = styled.img`
   position: relative;
   z-index: 3;
   width: 40px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: 30px;
+  }
 `;
 
 export class ContactSection extends Component {
@@ -111,9 +148,9 @@ export class ContactSection extends Component {
     return (
       <StyledSectionHolder name={navigationConfig.contact.value}>
         <StyledSectionDescription>
-          <DescriptionHeader>
+          <StyledDescriptionHeader>
             <SectionTitle>Kontakt</SectionTitle>
-          </DescriptionHeader>
+          </StyledDescriptionHeader>
           <ContactDetails>
             <ContactName>Dominika Szczypka</ContactName>
             <ContactPhone href="tel:+48603540013">+48 603 540 013</ContactPhone>

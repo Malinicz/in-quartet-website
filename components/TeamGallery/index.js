@@ -11,6 +11,10 @@ const TeamGalleryHolder = styled.div`
   height: 100%;
   margin-top: 50px;
   overflow: hidden;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Row = styled.div`
@@ -28,7 +32,7 @@ const Row = styled.div`
   }
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    flex-direction: column;
+    flex-direction: ${props => (props.isEven ? 'column-reverse' : 'column')};
   }
 `;
 
@@ -67,6 +71,10 @@ const PhotoBox = styled(GenericItem)`
     width: 40%;
     pointer-events: none;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: 100%;
+  }
 `;
 
 const DescriptionBox = styled(GenericItem)`
@@ -82,6 +90,10 @@ const DescriptionBox = styled(GenericItem)`
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     width: 60%;
     pointer-events: none;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+    width: 100%;
   }
 `;
 
@@ -148,7 +160,7 @@ export class TeamGallery extends Component {
             <ReactiveBox isActive={activeRow === 1} />
           </Row>
 
-          <Row>
+          <Row isEven={true}>
             <ReactiveBox isActive={activeRow === 2} />
             <ReactiveBox isActive={activeRow === 2}>
               <AnimatedBox isVisible={activeRow === 0 || activeRow === 4} />
@@ -215,7 +227,7 @@ export class TeamGallery extends Component {
             <ReactiveBox isActive={activeRow === 3} />
           </Row>
 
-          <Row>
+          <Row isEven={true}>
             <ReactiveBox isActive={activeRow === 4} />
             <ReactiveBox isActive={activeRow === 4}>
               <AnimatedBox isVisible={activeRow === 2} />

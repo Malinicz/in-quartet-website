@@ -17,28 +17,53 @@ const Content = styled.div`
   padding: ${props =>
     `50px ${props.theme.spacing}px 30px ${props.theme.spacing}px`};
   max-width: ${props => props.theme.maxWidth}px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-const LeftSide = styled.div``;
+const LeftSide = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-bottom: 30px;
+  }
+`;
 
 const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    align-items: center;
+  }
 `;
 
 const Navigation = styled.nav`
   font-family: ${props => props.theme.fontSecondary};
   font-size: 1.1em;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    text-align: center;
+  }
 `;
 
 const SocialIconsHolder = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-bottom: 50px;
+  }
 `;
 
 const SocialIcon = styled.img`
   margin-left: 10px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    margin: 0 20px;
+  }
 `;
 
 const MenuItemsHolder = styled.ul`

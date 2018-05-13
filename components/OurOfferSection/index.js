@@ -30,6 +30,10 @@ const StyledSectionDescription = styled(SectionDescription)`
 const PhotoHolder = styled.article`
   grid-area: content;
   margin-bottom: -100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    margin-bottom: -50px;
+  }
 `;
 
 //TODO use theme.spacing for calculations

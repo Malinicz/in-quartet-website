@@ -18,6 +18,11 @@ const StyledBackground = styled(Background)`
   left: -50px;
   width: 370px;
   height: 160px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    top: 80px;
+    width: 300px;
+  }
 `;
 
 const StyledSectionDescription = styled(SectionDescription)`

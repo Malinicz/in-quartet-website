@@ -14,6 +14,10 @@ import navigationConfig from '~/constants/navigationConfig';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 150px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 0;
+  }
 `;
 
 const StyledBackground = styled(Background)`
@@ -22,21 +26,39 @@ const StyledBackground = styled(Background)`
   left: auto;
   width: 310px;
   height: 130px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    top: 30px;
+    right: -${props => props.theme.spacing}px;
+    width: 270px;
+  }
 `;
 
 const StyledSectionDescription = styled(SectionDescription)`
   padding-left: 0;
   padding-top: 50px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 0;
+  }
 `;
 
 const StyledSectionTitle = styled(SectionTitle)`
   right: 0;
   left: auto;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    text-align: right;
+  }
 `;
 
 const PhotoGallerySection = styled.section`
   width: 100%;
   grid-area: content;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    padding-top: 50px;
+  }
 `;
 
 export class MultimediaSection extends Component {
