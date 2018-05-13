@@ -24,6 +24,7 @@ const BackgroundHolder = styled.div`
   bottom: 0;
   left: 0;
   background-size: cover;
+  background-position: center;
   transition: opacity 0.5s ease;
 `;
 

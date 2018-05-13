@@ -8,7 +8,8 @@ import navigationConfig from '~/constants/navigationConfig';
 import { IMAGES_URL } from '~/constants/paths';
 
 const violinFlash = keyframes`
-  0% { opacity: 0.02;}
+  0% { opacity: 0;}
+  10% {opacity: 0.02}
   35% {opacity: 0.06;}
   100% {opacity: 0.02;}
 `;
@@ -32,7 +33,7 @@ const Block = styled.div`
   left: 0;
   height: ${props => (props.isVisible ? props.height : '0%')};
   background-color: ${props => props.theme.colors.lightDark};
-  opacity: ${props => (props.isVisible ? 0.98 : 0)};
+  opacity: ${props => (props.isVisible ? 1 : 0)};
   transition: 0.5s ease height, 0.6s ease opacity;
   transition-delay: ${props => props.delay}s;
 `;
