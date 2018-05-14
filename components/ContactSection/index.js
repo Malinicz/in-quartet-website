@@ -118,7 +118,7 @@ const StyledButton = styled(Button)`
 
 const SubmitIcon = styled.img`
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 40px;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
