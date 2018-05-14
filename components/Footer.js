@@ -1,9 +1,9 @@
 import React from 'react';
+import { object } from 'prop-types';
 import { Link } from 'react-scroll';
 import styled from '~/styles';
 
 import { IMAGES_URL } from '~/constants/paths';
-import navigationConfig from '~/constants/navigationConfig';
 
 const FooterHolder = styled.footer`
   background-image: url('${IMAGES_URL}/gradient-gray.png');
@@ -83,7 +83,7 @@ const AuthorLogo = styled.img`
   margin-bottom: 1.2em;
 `;
 
-export const Footer = () => {
+export const Footer = ({ navigationConfig }) => {
   return (
     <FooterHolder>
       <Content>
@@ -118,4 +118,8 @@ export const Footer = () => {
       </Content>
     </FooterHolder>
   );
+};
+
+Footer.propTypes = {
+  navigationConfig: object.isRequired,
 };

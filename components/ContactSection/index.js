@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object, string } from 'prop-types';
 import styled from '~/styles';
 
 import {
@@ -20,8 +21,6 @@ import validateEmail from './emailValidation';
 
 import { IMAGES_URL, SITE_URL } from '~/constants/paths';
 import { PL } from '~/constants/supportedLanguages';
-
-import navigationConfig from '~/constants/navigationConfig';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 70px;
@@ -144,20 +143,26 @@ export class ContactSection extends Component {
 
   render() {
     const { isEmailValid } = this.state;
+    const { sectionId, data } = this.props;
+    const { description, form, contact1, contact2 } = data;
 
     return (
-      <StyledSectionHolder name={navigationConfig.contact.value}>
+      <StyledSectionHolder name={sectionId}>
         <StyledSectionDescription>
           <StyledDescriptionHeader>
-            <SectionTitle>Kontakt</SectionTitle>
+            <SectionTitle>{description.title}</SectionTitle>
           </StyledDescriptionHeader>
           <ContactDetails>
-            <ContactName>Dominika Szczypka</ContactName>
-            <ContactPhone href="tel:+48603540013">+48 603 540 013</ContactPhone>
+            <ContactName>{contact1.name}</ContactName>
+            <ContactPhone href={`tel:${contact1.phone}`}>
+              {contact1.phone}
+            </ContactPhone>
           </ContactDetails>
           <ContactDetails>
-            <ContactName>Justyna Poprawska</ContactName>
-            <ContactPhone href="tel:+48501303089">+48 501 303 089</ContactPhone>
+            <ContactName>{contact2.name}</ContactName>
+            <ContactPhone href={`tel:${contact2.phone}`}>
+              {contact2.phone}
+            </ContactPhone>
           </ContactDetails>
 
           <StyledForm
@@ -166,7 +171,7 @@ export class ContactSection extends Component {
           >
             <UserDetails>
               <LabelWithInputHolder>
-                <InputLabel>Email *</InputLabel>
+                <InputLabel>{form.email}</InputLabel>
                 <TextInput
                   type="text"
                   name="_replyto"
@@ -175,13 +180,13 @@ export class ContactSection extends Component {
                 <ValidationIcon isValid={isEmailValid} />
               </LabelWithInputHolder>
               <LabelWithInputHolder>
-                <InputLabel>Imię</InputLabel>
+                <InputLabel>{form.name}</InputLabel>
                 <TextInput type="text" name="name" />
               </LabelWithInputHolder>
             </UserDetails>
             <ContentWithSubmit>
               <LabelWithInputHolder>
-                <InputLabel>Treść wiadomości *</InputLabel>
+                <InputLabel>{form.content}</InputLabel>
                 <TextArea rows={6} name="content" />
               </LabelWithInputHolder>
               <input
@@ -200,5 +205,10 @@ export class ContactSection extends Component {
     );
   }
 }
+
+ContactSection.propTypes = {
+  data: object.isRequired,
+  sectionId: string.isRequired,
+};
 
 export default ContactSection;

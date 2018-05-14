@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object, string } from 'prop-types';
 import styled from '~/styles';
 
 import {
@@ -9,8 +10,6 @@ import {
   Background,
 } from '~/components/ui';
 import { PhotoGallery } from '~/components';
-
-import navigationConfig from '~/constants/navigationConfig';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 150px;
@@ -63,8 +62,10 @@ const PhotoGallerySection = styled.section`
 
 export class MultimediaSection extends Component {
   render() {
+    const { sectionId } = this.props;
+
     return (
-      <StyledSectionHolder name={navigationConfig.multimedia.value}>
+      <StyledSectionHolder name={sectionId}>
         <StyledSectionDescription>
           <DescriptionHeader>
             <StyledSectionTitle>Multimedia</StyledSectionTitle>
@@ -78,5 +79,10 @@ export class MultimediaSection extends Component {
     );
   }
 }
+
+MultimediaSection.propTypes = {
+  data: object.isRequired,
+  sectionId: string.isRequired,
+};
 
 export default MultimediaSection;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import styled from '~/styles';
 
 import { Section, H1 } from '~/components/ui';
@@ -70,6 +71,7 @@ export class IntroSection extends Component {
 
   render() {
     const { isCrazy } = this.state;
+    const { data } = this.props;
 
     return (
       <IntroSectionHolder>
@@ -80,8 +82,12 @@ export class IntroSection extends Component {
           onClick={this.toggleCraziness}
           isCrazy={isCrazy}
         />
-        <Title isCrazy={isCrazy}>kwartet smyczkowy</Title>
+        <Title isCrazy={isCrazy}>{data.subtitle}</Title>
       </IntroSectionHolder>
     );
   }
 }
+
+IntroSection.propTypes = {
+  data: object.isRequired,
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object, string } from 'prop-types';
 import styled from '~/styles';
 
 import { IMAGES_URL } from '~/constants/paths';
@@ -10,8 +11,6 @@ import {
   SectionTitle,
   Background,
 } from '~/components/ui';
-
-import navigationConfig from '~/constants/navigationConfig';
 
 const StyledBackground = styled(Background)`
   top: -50px;
@@ -53,18 +52,17 @@ const Paragraph = styled.p`
 
 export class CooperationSection extends Component {
   render() {
+    const { sectionId, data } = this.props;
+    const { title, body } = data.description;
+
     return (
-      <SectionHolder name={navigationConfig.cooperation.value}>
+      <SectionHolder name={sectionId}>
         <StyledSectionDescription>
           <DescriptionHeader>
-            <SectionTitle>Współpraca</SectionTitle>
+            <SectionTitle>{title}</SectionTitle>
           </DescriptionHeader>
-          <Paragraph>
-            Jako zespół jesteśmy ukierunkowane na szerokie działanie, również w
-            ramach projektów autorskich, wydarzeń koncertowych i kulturalnych
-            współtworzonych z instytucjami i artystami.
-          </Paragraph>
-          <Paragraph>Zapraszamy do kontaktu!</Paragraph>
+          <Paragraph>{body.paragraph1}</Paragraph>
+          <Paragraph>{body.paragraph2}</Paragraph>
           <StyledBackground />
           <ViolinImage src={`${IMAGES_URL}/violin-pink.svg`} />
         </StyledSectionDescription>
@@ -72,5 +70,10 @@ export class CooperationSection extends Component {
     );
   }
 }
+
+CooperationSection.propTypes = {
+  data: object.isRequired,
+  sectionId: string.isRequired,
+};
 
 export default CooperationSection;

@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from 'next/router';
-import { oneOf } from 'prop-types';
+import Router, { withRouter } from 'next/router';
+import { object } from 'prop-types';
 import styled from '~/styles';
 
 import { SUPPORTED_LANGUAGES, PL } from '~/constants/supportedLanguages';
@@ -24,7 +24,7 @@ const LanguageCell = styled.div`
   cursor: pointer;
 `;
 
-export const LanguageSwitch = ({ activeLanguage }) => {
+export const LanguageSwitch = withRouter(({ router }) => {
   const onLanguageSwitch = e => {
     const url = e.target.id === PL ? '/' : `/${e.target.id}`;
     Router.push(url);
@@ -33,7 +33,11 @@ export const LanguageSwitch = ({ activeLanguage }) => {
   return (
     <LanguageSwitchHolder>
       {SUPPORTED_LANGUAGES.map(language => {
-        const isActive = language === activeLanguage;
+        const isActive =
+          language === PL
+            ? router.pathname === '/'
+            : router.pathname === `/${language}`;
+
         return (
           <LanguageCell
             id={language}
@@ -47,8 +51,8 @@ export const LanguageSwitch = ({ activeLanguage }) => {
       })}
     </LanguageSwitchHolder>
   );
-};
+});
 
 LanguageSwitch.propTypes = {
-  activeLanguage: oneOf(SUPPORTED_LANGUAGES),
+  router: object,
 };

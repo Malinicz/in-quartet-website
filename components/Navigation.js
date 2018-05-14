@@ -1,17 +1,13 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
+import { bool, func, object } from 'prop-types';
 import styled, { keyframes } from '~/styles';
 import { Link } from 'react-scroll';
-
-import navigationConfig from '~/constants/navigationConfig';
 
 import { IMAGES_URL } from '~/constants/paths';
 
 const violinFlash = keyframes`
-  0% { opacity: 0;}
-  10% {opacity: 0.02}
-  35% {opacity: 0.06;}
-  100% {opacity: 0.02;}
+  0% { opacity: 0; }
+  100% { opacity: 0.07; }
 `;
 
 const NavigationHolder = styled.nav`
@@ -42,8 +38,8 @@ const ViolinImage = styled.img`
   position: relative;
   z-index: 11;
   height: 100%;
-  animation: ${props =>
-    props.isVisible ? `${violinFlash} 10s ease infinite` : 'none'};
+  animation: ${props => (props.isVisible ? `${violinFlash} 3s ease` : 'none')};
+  animation-fill-mode: forwards;
   visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
 `;
 
@@ -130,7 +126,11 @@ const LinkElement = styled(Link)`
   }
 `;
 
-export const Navigation = ({ isVisible, handleToggleMenu }) => {
+export const Navigation = ({
+  navigationConfig,
+  isVisible,
+  handleToggleMenu,
+}) => {
   return (
     <NavigationHolder isVisible={isVisible}>
       <ViolinImage
@@ -159,6 +159,7 @@ export const Navigation = ({ isVisible, handleToggleMenu }) => {
 };
 
 Navigation.propTypes = {
+  navigationConfig: object.isRequired,
   isVisible: bool.isRequired,
   handleToggleMenu: func.isRequired,
 };

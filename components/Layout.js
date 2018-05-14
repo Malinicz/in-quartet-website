@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { oneOf } from 'prop-types';
+import { object } from 'prop-types';
 import styled, { ThemeProvider } from '~/styles';
 import Theme from '~/styles/theme';
 
@@ -15,8 +15,6 @@ import {
   ContactSection,
 } from '~/components';
 
-import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
-
 const Wrapper = styled.div``;
 
 export class Layout extends Component {
@@ -28,25 +26,40 @@ export class Layout extends Component {
 
   render() {
     const { isMenuActive } = this.state;
-    const { language } = this.props;
+    const { data } = this.props;
 
     return (
       <ThemeProvider theme={Theme}>
         <Wrapper>
           <Header
-            language={language}
+            navigationConfig={data.navigation}
             isMenuActive={isMenuActive}
             handleToggleMenu={this.onToggleMenu}
           />
           <Main>
-            <IntroSection />
-            <AboutUsSection />
-            <OurOfferSection />
-            <CooperationSection />
-            <MultimediaSection />
-            <ContactSection />
+            <IntroSection data={data.intro} />
+            <AboutUsSection
+              data={data.aboutUs}
+              sectionId={data.navigation.aboutUs.value}
+            />
+            <OurOfferSection
+              data={data.ourOffer}
+              sectionId={data.navigation.ourOffer.value}
+            />
+            <CooperationSection
+              data={data.cooperation}
+              sectionId={data.navigation.cooperation.value}
+            />
+            <MultimediaSection
+              data={data.multimedia}
+              sectionId={data.navigation.multimedia.value}
+            />
+            <ContactSection
+              data={data.contact}
+              sectionId={data.navigation.contact.value}
+            />
           </Main>
-          <Footer />
+          <Footer navigationConfig={data.navigation} />
         </Wrapper>
       </ThemeProvider>
     );
@@ -54,5 +67,5 @@ export class Layout extends Component {
 }
 
 Layout.propTypes = {
-  language: oneOf(SUPPORTED_LANGUAGES),
+  data: object.isRequired,
 };

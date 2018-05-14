@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object, string } from 'prop-types';
 import styled from '~/styles';
 
 import { IMAGES_URL } from '~/constants/paths';
@@ -12,8 +13,6 @@ import {
   DescriptionContent,
   Background,
 } from '~/components/ui';
-
-import navigationConfig from '~/constants/navigationConfig';
 
 const PinkGradient = styled(Background)`
   background-image: url('${IMAGES_URL}/gradient-pink.png');
@@ -50,26 +49,21 @@ const Photo = styled.img`
 
 export class OurOfferSection extends Component {
   render() {
+    const { sectionId, data } = this.props;
+    const { title, subtitle, body } = data.description;
+
     return (
-      <SectionHolder name={navigationConfig.offer.value}>
+      <SectionHolder name={sectionId}>
         <StyledSectionDescription>
           <DescriptionHeader>
-            <SectionTitle>Oferta</SectionTitle>
-            <SectionSubtitle>Eventy, śluby, bankiety...</SectionSubtitle>
+            <SectionTitle>{title}</SectionTitle>
+            <SectionSubtitle>{subtitle}</SectionSubtitle>
           </DescriptionHeader>
           <DescriptionContent>
-            Oprawa muzyczna ślubu, przyjęcia, bankietu czy spotkania firmowego
-            to tylko część okoliczności, które możemy uświetnić swoimi
-            umiejętnościami. Niezależnie od wydarzenia gwarantujemy, że każde
-            wykonanie będzie niepowtarzalne i na długo pozostanie w pamięci i
-            sercach. <br />
-            <br /> Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe
-            standardy? Decyzja należy do Państwa. Ze względu na duże
-            doświadczenie z chęcią doradzimy w kwestiach repertuarowych w
-            zależności od okazji. Jeśli jednak mają Państwo konkretne pomysły
-            czy marzenia związane z oprawą muzyczną swojej uroczystości lub
-            wydarzenia - jesteśmy otwarte na propozycje. Po inspiracje
-            zapraszamy do zakładki Multimedia.
+            {body.paragraph1}
+            <br />
+            <br />
+            {body.paragraph2}
           </DescriptionContent>
           <PinkGradient />
         </StyledSectionDescription>
@@ -80,5 +74,10 @@ export class OurOfferSection extends Component {
     );
   }
 }
+
+OurOfferSection.propTypes = {
+  data: object.isRequired,
+  sectionId: string.isRequired,
+};
 
 export default OurOfferSection;

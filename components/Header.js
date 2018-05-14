@@ -1,11 +1,9 @@
 import React from 'react';
-import { oneOf, bool, func } from 'prop-types';
+import { object, bool, func } from 'prop-types';
 import styled from '~/styles';
 
 import { LanguageSwitch, MenuButton } from '~/components/ui';
 import { Navigation } from '~/components';
-
-import { SUPPORTED_LANGUAGES } from '~/constants/supportedLanguages';
 
 const HeaderHolder = styled.header`
   display: flex;
@@ -16,15 +14,20 @@ const HeaderHolder = styled.header`
   height: 65px;
 `;
 
-export const Header = ({ language, isMenuActive, handleToggleMenu }) => {
+export const Header = ({
+  navigationConfig,
+  isMenuActive,
+  handleToggleMenu,
+}) => {
   return (
     <HeaderHolder>
-      <LanguageSwitch activeLanguage={language} />
+      <LanguageSwitch />
       <MenuButton
         handleToggleMenu={handleToggleMenu}
         isMenuActive={isMenuActive}
       />
       <Navigation
+        navigationConfig={navigationConfig}
         isVisible={isMenuActive}
         handleToggleMenu={handleToggleMenu}
       />
@@ -33,7 +36,7 @@ export const Header = ({ language, isMenuActive, handleToggleMenu }) => {
 };
 
 Header.propTypes = {
-  language: oneOf(SUPPORTED_LANGUAGES),
+  navigationConfig: object.isRequired,
   isMenuActive: bool.isRequired,
   handleToggleMenu: func.isRequired,
 };
