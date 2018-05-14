@@ -105,7 +105,6 @@ const ContentWithSubmit = styled.div`
 const StyledButton = styled(Button)`
   margin: 25px 0 0 15px;
   width: 100px;
-  height: ${props => props.theme.inputHeight}px;
 
   &:disabled {
     cursor: not-allowed;
@@ -114,6 +113,7 @@ const StyledButton = styled(Button)`
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     margin: ${props => `${props.theme.spacing}px 0`};
     width: 100%;
+    height: ${props => props.theme.inputHeight}px;
   }
 `;
 

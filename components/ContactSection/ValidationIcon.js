@@ -13,6 +13,7 @@ const ValidationIconHolder = styled.div`
   position: absolute;
   right: 10px;
   bottom: 10px;
+  visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
 `;
 
 const Face = styled.div`
@@ -24,15 +25,15 @@ const Face = styled.div`
       : `url(${IMAGES_URL}/face-sad.svg)`};
   background-size: cover;
   animation: ${faceAnimation} 0.5s ease;
-  transition: 0.3s ease all;
+  transition: 0.3s background-image all;
 `;
 
 const ValidationIcon = ({ isValid }) => {
-  return isValid !== null ? (
-    <ValidationIconHolder>
+  return (
+    <ValidationIconHolder isVisible={isValid !== null}>
       {isValid ? <Face isHappy={true} /> : <Face isHappy={false} />}
     </ValidationIconHolder>
-  ) : null;
+  );
 };
 
 ValidationIcon.propTypes = {

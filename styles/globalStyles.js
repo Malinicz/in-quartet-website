@@ -1,20 +1,22 @@
 import { injectGlobal } from 'styled-components';
 import theme from '~/styles/theme';
 
+import { FONTS_URL } from '~/constants/paths';
+
 injectGlobal`
   @font-face {
      font-family: 'MitrRegular';
-     src: url('static/fonts/Mitr-Regular.ttf');
+     src: url('${FONTS_URL}/Mitr-Regular.ttf');
   }
 
   @font-face {
      font-family: 'MuliRegular';
-     src: url('static/fonts/Muli-Regular.ttf');
+     src: url('${FONTS_URL}/Muli-Regular.ttf');
   }
 
   @font-face {
      font-family: 'MuliBold';
-     src: url('static/fonts/Muli-Bold.ttf');
+     src: url('${FONTS_URL}/Muli-Bold.ttf');
   }
 
   body {

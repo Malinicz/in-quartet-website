@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
+    "prod": "next build && next start",
     "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "export": "next build && next export"
   },
   "author": "Artur Malinowski",
   "license": "ISC",

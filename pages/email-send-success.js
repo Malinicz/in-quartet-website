@@ -37,6 +37,7 @@ const Message = styled.div`
   align-items: center;
   font-size: 1.2em;
   font-family: ${theme.fontSecondary};
+  text-align: center;
 `;
 
 const Logo = styled.img`

@@ -8,7 +8,6 @@ export const Section = styled.section`
   padding: ${props => props.theme.spacing}px;
 `;
 
-//TODO remove overflow:hidden (multimedia section issue)
 export const SectionHolder = styled(Section)`
   display: grid;
   grid-template-columns: ${props =>
@@ -18,7 +17,6 @@ export const SectionHolder = styled(Section)`
     '. description .'
     '. content .';
   padding-top: 100px;
-  overflow: hidden;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     padding-top: 0;

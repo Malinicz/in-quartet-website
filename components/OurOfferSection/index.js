@@ -27,12 +27,12 @@ const StyledSectionDescription = styled(SectionDescription)`
   }
 `;
 
+//TODO use theme.spacing
 const PhotoHolder = styled.article`
   grid-area: content;
-  margin-bottom: -100px;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    margin-bottom: -50px;
+    margin-bottom: inherit -15px -100px -15px;
   }
 `;
 
