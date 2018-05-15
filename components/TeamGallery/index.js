@@ -69,11 +69,14 @@ const PhotoBox = styled(GenericItem)`
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     width: 40%;
+    min-width: 250px;
     pointer-events: none;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     width: 100%;
+    border: ${props =>
+      `${props.theme.spacing}px solid ${props.theme.colors.light}`};
   }
 `;
 
@@ -89,10 +92,11 @@ const DescriptionBox = styled(GenericItem)`
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     width: 60%;
+    z-index: 1;
     pointer-events: none;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     width: 100%;
   }
 `;

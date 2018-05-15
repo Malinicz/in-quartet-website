@@ -54,7 +54,13 @@ const DescriptionHeader = styled.header`
     left: unset;
     transform: none;
     animation: none;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     text-align: left;
+    background-color: ${props => props.theme.colors.light};
+    padding-top: 0;
+    padding-bottom: 1.5em;
   }
 `;
 
@@ -80,7 +86,11 @@ const DescriptionBody = styled.p`
     position: static;
     animation: none;
     transform: none;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     text-align: left;
+    padding-top: 0;
   }
 `;
 
