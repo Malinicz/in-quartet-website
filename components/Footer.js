@@ -3,6 +3,8 @@ import { object } from 'prop-types';
 import { Link } from 'react-scroll';
 import styled from '~/styles';
 
+import { SocialIcons } from '~/components/ui';
+
 import { IMAGES_URL } from '~/constants/paths';
 
 const FooterHolder = styled.footer`
@@ -49,23 +51,6 @@ const Navigation = styled.nav`
   }
 `;
 
-const SocialIconsHolder = styled.div`
-  display: flex;
-  justify-content: flex-end;
-
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    padding-bottom: 50px;
-  }
-`;
-
-const SocialIcon = styled.img`
-  margin-left: 10px;
-
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    margin: 0 20px;
-  }
-`;
-
 const MenuItemsHolder = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -106,11 +91,7 @@ export const Footer = ({ navigationConfig }) => {
           </Navigation>
         </LeftSide>
         <RightSide>
-          <SocialIconsHolder>
-            <SocialIcon src={`${IMAGES_URL}/facebook-logo.png`} />
-            <SocialIcon src={`${IMAGES_URL}/instagram-logo.png`} />
-            <SocialIcon src={`${IMAGES_URL}/youtube-logo.png`} />
-          </SocialIconsHolder>
+          <SocialIcons />
           <a href="mailto:malinicz@gmail.com">
             <AuthorLogo src={`${IMAGES_URL}/malinowski-logo.svg`} />
           </a>

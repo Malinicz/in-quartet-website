@@ -14,6 +14,11 @@ const MenuButtonHolder = styled.div`
   height: 35px;
   transition: 0.3s ease height;
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    right: ${props => props.theme.spacing}px;
+    top: 18px;
+  }
 `;
 
 const String = styled.div`

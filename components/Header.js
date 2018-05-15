@@ -12,6 +12,12 @@ const HeaderHolder = styled.header`
   z-index: 2;
   padding: ${props => props.theme.spacing * 2}px;
   height: 65px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    background-color: black;
+    height: 65px;
+    padding: ${props => props.theme.spacing}px;
+  }
 `;
 
 export const Header = ({

@@ -31,19 +31,19 @@ const PhotoHolder = styled.article`
   grid-area: content;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    margin-bottom: inherit -15px -100px -15px;
+    margin: ${props =>
+      `0 -${props.theme.spacing}px -50px -${props.theme.spacing}px`};
   }
 `;
 
-//TODO use theme.spacing for calculations
 const Photo = styled.img`
   width: 100%;
   max-width: 800px;
   transform: translate(-50px, -100px);
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    width: calc(100% + 30px);
-    transform: translate(-15px, 0);
+    width: 100%;
+    transform: none;
   }
 `;
 
