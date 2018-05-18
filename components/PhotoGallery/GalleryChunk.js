@@ -15,6 +15,11 @@ const Row = styled.div`
   display: flex;
   position: relative;
   width: 100%;
+  transition: margin 0.3s ease;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    margin: ${props => (props.isActive ? '30px 0px' : '0px')};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -23,6 +28,11 @@ const Wrapper = styled.div`
   transform: ${props =>
     props.isTranslated ? 'translate3d(0, 0, 0)' : 'translate3d(-16.67%, 0, 0)'};
   transition: 0.3s transform ease;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    transform: none;
+    width: 100%;
+  }
 `;
 
 const GenericItem = styled.div`
@@ -43,6 +53,11 @@ const PhotoBoxSibling = styled(GenericItem)`
   width: ${props =>
     props.isActive ? (props.isHorizontal ? '40%' : '60%') : '20%'};
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: ${props => (props.isActive ? '0%' : '50%')};
+    padding-top: ${props => (props.isActive ? '75%' : '0%')};
+  }
 `;
 
 const PhotoBox = styled(GenericItem)`
@@ -57,12 +72,20 @@ const PhotoBox = styled(GenericItem)`
   &::before {
     padding-top: 0%;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    width: ${props => (props.isActive ? '100%' : '50%')};
+  }
 `;
 
 const ReactiveBox = styled(GenericItem)`
   position: relative;
   width: ${props => (props.isActive ? '0%' : '20%')};
   height: ${props => (props.isActive ? '0%' : '100%')};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    display: none;
+  }
 `;
 
 class GalleryChunk extends Component {
@@ -79,7 +102,7 @@ class GalleryChunk extends Component {
     return (
       <GalleryChunkHolder>
         <Wrapper isTranslated={isTranslated}>
-          <Row>
+          <Row isActive={activeRow === 0}>
             <ReactiveBox isActive={activeRow === 0 && data[0].isHorizontal}>
               <AnimatedBox isVisible={false} />
             </ReactiveBox>
@@ -105,7 +128,7 @@ class GalleryChunk extends Component {
             </ReactiveBox>
           </Row>
 
-          <Row>
+          <Row isActive={activeRow === 1}>
             <ReactiveBox isActive={activeRow === 1} />
             <ReactiveBox isActive={activeRow === 1 && !data[1].isHorizontal}>
               <AnimatedBox isVisible={activeRow === -1 || activeRow === 3} />
@@ -135,7 +158,7 @@ class GalleryChunk extends Component {
             </ReactiveBox>
           </Row>
 
-          <Row>
+          <Row isActive={activeRow === 2}>
             <ReactiveBox isActive={activeRow === 2 && data[2].isHorizontal}>
               <AnimatedBox isVisible={activeRow === 0} delay={15} />
             </ReactiveBox>
@@ -165,7 +188,7 @@ class GalleryChunk extends Component {
             </ReactiveBox>
           </Row>
 
-          <Row>
+          <Row isActive={activeRow === 3}>
             <ReactiveBox isActive={activeRow === 3} />
             <ReactiveBox isActive={activeRow === 3 && !data[3].isHorizontal}>
               <AnimatedBox

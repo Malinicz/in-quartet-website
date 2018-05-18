@@ -124,7 +124,7 @@ export default {
           title: 'Dominika',
           subtitle: 'cello',
           body:
-            'our cellist, perfectionist in every way. She always inspires us to take on new challenges and at the same time she is an anchor for our team. She collects numerous prizes for the chamber music, which is her passion. Since recently, a Cracovian, she also enjoys long hikes in the mountains.',
+            'Our cellist, perfectionist in every way. She always inspires us to take on new challenges and at the same time she is an anchor for our team. She collects numerous prizes for the chamber music, which is her passion. Since recently, a Cracovian, she also enjoys long hikes in the mountains.',
         },
         3: {
           imageUrl: `${ABOUT_US_URL}/ania.jpg`,
