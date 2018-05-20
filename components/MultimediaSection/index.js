@@ -9,7 +9,7 @@ import {
   SectionTitle,
   Background,
 } from '~/components/ui';
-import { PhotoGallery, VideoGallery } from '~/components';
+import { PhotoGallery, VideoGallery, AudioPlayer } from '~/components';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 150px;
@@ -73,6 +73,7 @@ export class MultimediaSection extends Component {
           <StyledBackground />
         </StyledSectionDescription>
         <ContentSection>
+          <AudioPlayer />
           <VideoGallery videos={data.videos} />
           <PhotoGallery />
         </ContentSection>
