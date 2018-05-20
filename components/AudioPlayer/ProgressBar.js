@@ -27,7 +27,7 @@ const PlayedProgress = styled.div`
 
 const Circle = styled.div`
   position: absolute;
-  right: 0;
+  right: -4px;
   top: -4px;
   width: 13px;
   height: 13px;

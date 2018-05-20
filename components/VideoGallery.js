@@ -6,14 +6,17 @@ import { H3 } from '~/components/ui';
 
 import { IMAGES_URL } from '~/constants/paths';
 
-const VideoGalleryHolder = styled.div``;
+const VideoGalleryHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const VideoHolder = styled.div`
   position: relative;
   margin-bottom: 130px;
   width: 620px;
   height: 349px;
-  float: ${props => (props.isEven ? 'right' : 'left')};
+  align-self: ${props => (props.isEven ? 'flex-end' : 'flex-start')};
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     width: 100%;

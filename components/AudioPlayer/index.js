@@ -9,7 +9,7 @@ import ProgressBar from './ProgressBar';
 import { IMAGES_URL } from '~/constants/paths';
 
 const AudioPlayerHolder = styled.div`
-  margin-bottom: 50px;
+  margin: 30px 0 70px 0;
 `;
 
 const MainPlayerHolder = styled.div`
