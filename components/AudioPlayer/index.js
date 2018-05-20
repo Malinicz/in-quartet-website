@@ -146,7 +146,7 @@ export class AudioPlayer extends Component {
       currentTrack: 0,
       currentVolume: 1,
       currentTime: 0,
-      currentSongLength: 374.5,
+      currentSongLength: 160,
     };
   }
 
@@ -205,7 +205,6 @@ export class AudioPlayer extends Component {
         this.clearProgressBarInterval();
         this.onNextTrackClick();
       }
-
       this.setState({
         currentTime: this.audio.currentTime,
         currentSongLength: this.audio.duration,
@@ -323,7 +322,7 @@ export class AudioPlayer extends Component {
           />
         </ProgressBarHolder>
         <audio ref={audio => (this.audio = audio)}>
-          <source />
+          <source src={TRACKS[0].url} />
         </audio>
       </AudioPlayerHolder>
     );

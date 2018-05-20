@@ -16,6 +16,15 @@ const Progress = styled.div`
   cursor: pointer;
 `;
 
+const HiddenProgress = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`;
+
 const PlayedProgress = styled.div`
   position: absolute;
   top: 0;
@@ -27,7 +36,7 @@ const PlayedProgress = styled.div`
 
 const Circle = styled.div`
   position: absolute;
-  right: -4px;
+  right: -7px;
   top: -4px;
   width: 13px;
   height: 13px;
@@ -36,8 +45,6 @@ const Circle = styled.div`
 `;
 
 class ProgressBar extends PureComponent {
-  progressBar = null;
-
   formatSongLength = timeInSeconds => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds - minutes * 60;
@@ -49,9 +56,12 @@ class ProgressBar extends PureComponent {
   //TODO refactor this
   onProgressClick = e => {
     const { currentSongLength } = this.props;
-    const width = window.innerWidth - 30;
+    const leftWidth = (window.innerWidth - e.target.offsetWidth) / 2;
+    const width = e.target.offsetWidth;
     const xPosition = e.pageX;
-    const currentTime = Math.floor(xPosition / width * currentSongLength) - 5;
+    const currentTime = Math.floor(
+      (xPosition - leftWidth) / width * currentSongLength,
+    );
     this.props.handleSetCurrentTime(currentTime);
   };
 
@@ -64,7 +74,8 @@ class ProgressBar extends PureComponent {
         <CurrentTime>
           {this.formatSongLength(Math.ceil(currentTime))}
         </CurrentTime>
-        <Progress onClick={this.onProgressClick}>
+        <Progress>
+          <HiddenProgress onClick={this.onProgressClick} />
           <PlayedProgress style={{ width: `${progressBarWidth}%` }}>
             <Circle />
           </PlayedProgress>
