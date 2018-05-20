@@ -9,7 +9,7 @@ import {
   SectionTitle,
   Background,
 } from '~/components/ui';
-import { PhotoGallery } from '~/components';
+import { PhotoGallery, VideoGallery } from '~/components';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 150px;
@@ -51,7 +51,7 @@ const StyledSectionTitle = styled(SectionTitle)`
   }
 `;
 
-const PhotoGallerySection = styled.section`
+const ContentSection = styled.section`
   width: 100%;
   grid-area: content;
 
@@ -62,7 +62,7 @@ const PhotoGallerySection = styled.section`
 
 export class MultimediaSection extends Component {
   render() {
-    const { sectionId } = this.props;
+    const { sectionId, data } = this.props;
 
     return (
       <StyledSectionHolder name={sectionId}>
@@ -72,9 +72,10 @@ export class MultimediaSection extends Component {
           </DescriptionHeader>
           <StyledBackground />
         </StyledSectionDescription>
-        <PhotoGallerySection>
+        <ContentSection>
+          <VideoGallery videos={data.videos} />
           <PhotoGallery />
-        </PhotoGallerySection>
+        </ContentSection>
       </StyledSectionHolder>
     );
   }

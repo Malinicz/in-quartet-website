@@ -62,7 +62,7 @@ const PhotoBoxSibling = styled(GenericItem)`
 
 const PhotoBox = styled(GenericItem)`
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: ${props =>
     props.isActive ? (props.isHorizontal ? '60%' : '40%') : '20%'};
   background-image: ${props => `url(${props.imageUrl})`};

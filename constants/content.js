@@ -1,4 +1,4 @@
-import { PL, EN } from '~/constants/supportedLanguages';
+/* eslint-disable */ import { PL, EN } from '~/constants/supportedLanguages';
 import { IMAGES_URL } from '~/constants/paths';
 
 const ABOUT_US_URL = `${IMAGES_URL}/about-us`;
@@ -74,7 +74,22 @@ export default {
         },
       },
     },
-    multimedia: {},
+    multimedia: {
+      videos: [
+        {
+          title: 'Różni wykonawcy',
+          subtitle: 'Kompilacja utworów',
+          videoUrl:
+            'https://www.youtube.com/embed/mLfiCVBl-Z8?rel=0&amp;showinfo=0',
+        },
+        {
+          title: 'Aerosmith',
+          subtitle: "I don't wanna miss a thing",
+          videoUrl:
+            'https://www.youtube.com/embed/ghxoAA99mcw?rel=0&amp;showinfo=0',
+        },
+      ],
+    },
     contact: {
       description: {
         title: 'kontakt',
@@ -164,7 +179,22 @@ export default {
         },
       },
     },
-    multimedia: {},
+    multimedia: {
+      videos: [
+        {
+          title: 'Various artists',
+          subtitle: 'Songs compilation',
+          videoUrl:
+            'https://www.youtube.com/embed/mLfiCVBl-Z8?rel=0&amp;showinfo=0',
+        },
+        {
+          title: 'Aerosmith',
+          subtitle: "I don't wanna miss a thing",
+          videoUrl:
+            'https://www.youtube.com/embed/ghxoAA99mcw?rel=0&amp;showinfo=0',
+        },
+      ],
+    },
     contact: {
       description: {
         title: 'contact',
