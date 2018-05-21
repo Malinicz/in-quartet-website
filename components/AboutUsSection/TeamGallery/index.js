@@ -143,7 +143,10 @@ class TeamGallery extends Component {
         <Wrapper isTranslated={isTranslated}>
           <Row>
             <ReactiveBox>
-              <AnimatedBox isVisible={activeRow === 4} />
+              <AnimatedBox
+                isVisible={activeRow === 4}
+                animationFactors={[Math.random(), Math.random()]}
+              />
             </ReactiveBox>
             <ReactiveBox isActive={activeRow === 1} />
             <PhotoBox
@@ -164,7 +167,10 @@ class TeamGallery extends Component {
               />
             </DescriptionBox>
             <ReactiveBox isActive={activeRow === 1}>
-              <AnimatedBox isVisible={activeRow === 3} />
+              <AnimatedBox
+                isVisible={activeRow === 3}
+                animationFactors={[Math.random(), Math.random()]}
+              />
             </ReactiveBox>
             <ReactiveBox isActive={activeRow === 1} />
           </Row>
@@ -172,7 +178,10 @@ class TeamGallery extends Component {
           <Row isEven={true}>
             <ReactiveBox isActive={activeRow === 2} />
             <ReactiveBox isActive={activeRow === 2}>
-              <AnimatedBox isVisible={activeRow === 0 || activeRow === 4} />
+              <AnimatedBox
+                isVisible={activeRow === 0 || activeRow === 4}
+                animationFactors={[Math.random(), Math.random()]}
+              />
             </ReactiveBox>
             <DescriptionBox
               id={2}
@@ -200,13 +209,17 @@ class TeamGallery extends Component {
                 isVisible={
                   activeRow === 1 || activeRow === 3 || activeRow === 0
                 }
+                animationFactors={[Math.random(), Math.random()]}
               />
             </ReactiveBox>
           </Row>
 
           <Row>
             <ReactiveBox>
-              <AnimatedBox isVisible={activeRow === 2} />
+              <AnimatedBox
+                isVisible={activeRow === 2}
+                animationFactors={[Math.random(), Math.random()]}
+              />
             </ReactiveBox>
             <ReactiveBox isActive={activeRow === 3} />
             <PhotoBox
@@ -231,6 +244,7 @@ class TeamGallery extends Component {
               <AnimatedBox
                 delay={10}
                 isVisible={activeRow === 0 || activeRow === 1}
+                animationFactors={[Math.random(), Math.random()]}
               />
             </ReactiveBox>
             <ReactiveBox isActive={activeRow === 3} />
@@ -239,7 +253,10 @@ class TeamGallery extends Component {
           <Row isEven={true}>
             <ReactiveBox isActive={activeRow === 4} />
             <ReactiveBox isActive={activeRow === 4}>
-              <AnimatedBox isVisible={activeRow === 2} />
+              <AnimatedBox
+                isVisible={activeRow === 2}
+                animationFactors={[Math.random(), Math.random()]}
+              />
             </ReactiveBox>
             <DescriptionBox
               id={4}
