@@ -64,7 +64,7 @@ export class CooperationSection extends Component {
           <Paragraph>{body.paragraph1}</Paragraph>
           <Paragraph>{body.paragraph2}</Paragraph>
           <StyledBackground />
-          <ViolinImage src={`${IMAGES_URL}/violin-pink.svg`} />
+          <ViolinImage src={`${IMAGES_URL}/violin-pink.png`} />
         </StyledSectionDescription>
       </SectionHolder>
     );
