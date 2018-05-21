@@ -1,5 +1,11 @@
-// export const SITE_URL = 'http://serwer11003.lh.pl/in-quartet';
-export const SITE_URL = 'http://localhost:3000';
+/* eslint-disable no-undef */
+
+import { SERVER_URL_DEV, SERVER_URL_PROD, PROJECT_NAME } from './projectConfig';
+
+export const SITE_URL =
+  process.env.NODE_ENV === 'development'
+    ? SERVER_URL_DEV
+    : `${SERVER_URL_PROD}/${PROJECT_NAME}`;
 
 export const IMAGES_URL = `${SITE_URL}/static/images`;
 
