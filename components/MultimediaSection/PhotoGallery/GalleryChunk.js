@@ -68,6 +68,7 @@ const PhotoBox = styled(GenericItem)`
     props.isActive ? (props.isHorizontal ? '60%' : '40%') : '20%'};
   background-image: ${props => `url(${props.imageUrl})`};
   background-size: cover;
+  background-position: center;
   cursor: pointer;
 
   &::before {

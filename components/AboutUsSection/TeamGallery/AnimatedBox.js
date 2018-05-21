@@ -41,12 +41,20 @@ const ViolinShape = styled.img`
   position: absolute;
   height: 30%;
   animation: 20s ${violinShapeAnimation} ease infinite;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    animation: none;
+  }
 `;
 
 const ViolinShapeFlipped = styled.img`
   position: absolute;
   height: 30%;
   animation: 30s ${violinShapeAnimation} ease infinite;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    animation: none;
+  }
 `;
 
 class AnimatedBox extends Component {
