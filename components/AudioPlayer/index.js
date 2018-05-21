@@ -37,6 +37,7 @@ const SongTable = styled.table`
   width: 100%;
   color: ${props => props.theme.colors.darkLight};
   margin-bottom: 30px;
+  table-layout: fixed;
 `;
 
 const SongTableRow = styled.tr`
@@ -54,6 +55,7 @@ const SongTableRow = styled.tr`
 const SongTitleCell = styled.td``;
 
 const SongLengthCell = styled.td`
+  width: 20%;
   text-align: right;
   vertical-align: top;
 `;

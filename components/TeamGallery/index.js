@@ -67,6 +67,10 @@ const PhotoBox = styled(GenericItem)`
   width: ${props => (props.isActive ? '40%' : '20%')};
   cursor: pointer;
 
+  &:hover {
+    opacity: ${props => (props.isActive ? 1 : 0.85)};
+  }
+
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     width: 40%;
     min-width: 250px;

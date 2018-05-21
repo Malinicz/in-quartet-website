@@ -1,5 +1,5 @@
-/* eslint-disable */ import { PL, EN } from '~/constants/supportedLanguages';
-import { IMAGES_URL } from '~/constants/paths';
+/* eslint-disable */ import { IMAGES_URL } from '~/constants/paths';
+import { EN, PL } from '~/constants/supportedLanguages';
 
 const ABOUT_US_URL = `${IMAGES_URL}/about-us`;
 
@@ -19,36 +19,36 @@ export default {
         subtitle:
           'Jesteśmy absolwentkami najlepszych Akademii Muzycznych w kraju, kształconymi u wybitnych profesorów.',
         body:
-          'Każda może się poszczycić nagrodami w konkursach solowych i kameralnych oraz kursami mistrzowskimi u najlepszych pedagogów z Polski i świata.Co równie ważne, od lat wykonujemy swój zawód w praktyce, współpracując z czołowymi orkiestrami i wykonawcami przy projektach koncertowych i nagraniach, a niejednokrotnie grając na scenie z gwiazdami polskiej muzyki rozrywkowej, Edytą Górniak, Sebastianem Karpielem - Bułecką, Kubą Badachem, Justyną Steczkowską, Kayah i innymi.',
+          'Każda może się poszczycić nagrodami w konkursach solowych i kameralnych oraz kursami mistrzowskimi u najlepszych pedagogów z Polski i świata.Co równie ważne, od lat wykonujemy swój zawód w praktyce, współpracując z czołowymi orkiestrami i wykonawcami przy projektach koncertowych i nagraniach, niejednokrotnie grając na scenie z gwiazdami polskiej muzyki rozrywkowej, Edytą Górniak, Sebastianem Karpielem - Bułecką, Kubą Badachem, Justyną Steczkowską, Kayah i innymi.',
       },
       people: {
         1: {
-          imageUrl: `${ABOUT_US_URL}/justyna.jpg`,
-          title: 'Justyna',
-          subtitle: 'altówka',
+          imageUrl: `${ABOUT_US_URL}/ola.jpg`,
+          title: 'Ola',
+          subtitle: 'skrzypce',
           body:
-            'Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje z wieloma krakowskimi orkiestrami, jest też stażystką drugiej edycji Akademii Baltic Neopolis Orchestra.Lubi stawiać sobie wyzwania. Dyplomowana altowiolistka, a wkrótce także skrzypaczka.',
+            'Całe życie gra pierwsze skrzypce. Związana na stałe z Orkiestrą Akademii Beethovenowskiej, z pasją kształci też pokolenia młodych skrzypków. W wolnych chwilach z przyjemnością oddaje się dobrej lekturze oraz filmowi.',
         },
         2: {
-          imageUrl: `${ABOUT_US_URL}/dominika.jpg`,
-          title: 'Dominika',
-          subtitle: 'wiolonczela',
-          body:
-            'Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze daje impuls do działania i jest solidną bazą zespołu.Jej pasją jest muzyka kameralna, na której polu zdobywa liczne laury.W wolnym czasie uwielbia chodzić po górach.Od niedawna krakowianka.',
-        },
-        3: {
           imageUrl: `${ABOUT_US_URL}/ania.jpg`,
           title: 'Ania',
           subtitle: 'skrzypce',
           body:
             'Gdyby nie skrzypce zostałaby prawdopodobnie sportsmenką. Na nasze szczęście wybrała muzykę, choć sport kocha do dziś. Skrzypaczka w Orkiestrze Akademii Beethovenowskiej, nauczyciel gry na skrzypcach, również metodą Suzuki.',
         },
-        4: {
-          imageUrl: `${ABOUT_US_URL}/ola.jpg`,
-          title: 'Ola',
-          subtitle: 'skrzypce',
+        3: {
+          imageUrl: `${ABOUT_US_URL}/justyna.jpg`,
+          title: 'Justyna',
+          subtitle: 'altówka',
           body:
-            'Całe życie gra pierwsze skrzypce. Związana na stałe z Orkiestrą Akademii Beethovenowskiej, z pasją kształci też pokolenia młodych skrzypków. W wolnych chwilach z przyjemnością oddaje się dobrej lekturze oraz filmowi.',
+            'Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje z wieloma krakowskimi orkiestrami, jest też stażystką drugiej edycji Akademii Baltic Neopolis Orchestra.Lubi stawiać sobie wyzwania. Dyplomowana altowiolistka, a wkrótce także skrzypaczka.',
+        },
+        4: {
+          imageUrl: `${ABOUT_US_URL}/dominika.jpg`,
+          title: 'Dominika',
+          subtitle: 'wiolonczela',
+          body:
+            'Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze daje impuls do działania i jest solidną bazą zespołu.Jej pasją jest muzyka kameralna, na której polu zdobywa liczne laury.W wolnym czasie uwielbia chodzić po górach.Od niedawna krakowianka.',
         },
       },
     },
@@ -128,32 +128,32 @@ export default {
       },
       people: {
         1: {
-          imageUrl: `${ABOUT_US_URL}/justyna.jpg`,
-          title: 'Justyna',
-          subtitle: 'viola',
+          imageUrl: `${ABOUT_US_URL}/ola.jpg`,
+          title: 'Ola',
+          subtitle: 'violin',
           body:
-            'Constantly on the move, sometimes it’s difficult to keep up with her. She collaborates with many Krakow orchestras and she is a trainee of the second edition of the Baltic Neopolis Orchestra. She also likes to challenge herself. A certified violist, and soon also a violinist.',
+            'She has been taking the lead all her life. Permanently associated with the Beethoven Academy Orchestra, she also passionately educates generations of young violinists. In her free time, she likes to bury herself in a good book or watch an interesting movie.',
         },
         2: {
-          imageUrl: `${ABOUT_US_URL}/dominika.jpg`,
-          title: 'Dominika',
-          subtitle: 'cello',
-          body:
-            'Our cellist, perfectionist in every way. She always inspires us to take on new challenges and at the same time she is an anchor for our team. She collects numerous prizes for the chamber music, which is her passion. Since recently, a Cracovian, she also enjoys long hikes in the mountains.',
-        },
-        3: {
           imageUrl: `${ABOUT_US_URL}/ania.jpg`,
           title: 'Ania',
           subtitle: 'violin',
           body:
             'If it wasn’t for the love for violin she would probably be a sportswoman. Luckily for us she chose music but she enjoys sport to this day. She is a violinist in the Beethoven Academy Orchestra, a violin teacher, who also uses the Suzuki method.',
         },
-        4: {
-          imageUrl: `${ABOUT_US_URL}/ola.jpg`,
-          title: 'Ola',
-          subtitle: 'violin',
+        3: {
+          imageUrl: `${ABOUT_US_URL}/justyna.jpg`,
+          title: 'Justyna',
+          subtitle: 'viola',
           body:
-            'She has been taking the lead all her life. Permanently associated with the Beethoven Academy Orchestra, she also passionately educates generations of young violinists. In her free time, she likes to bury herself in a good book or watch an interesting movie.',
+            'Constantly on the move, sometimes it’s difficult to keep up with her. She collaborates with many Krakow orchestras and she is a trainee of the second edition of the Baltic Neopolis Orchestra. She also likes to challenge herself. A certified violist, and soon also a violinist.',
+        },
+        4: {
+          imageUrl: `${ABOUT_US_URL}/dominika.jpg`,
+          title: 'Dominika',
+          subtitle: 'cello',
+          body:
+            'Our cellist, perfectionist in every way. She always inspires us to take on new challenges and at the same time she is an anchor for our team. She collects numerous prizes for the chamber music, which is her passion. Since recently, a Cracovian, she also enjoys long hikes in the mountains.',
         },
       },
     },

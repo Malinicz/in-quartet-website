@@ -23,9 +23,27 @@ const SocialIcon = styled.img`
 export const SocialIcons = () => {
   return (
     <SocialIconsHolder>
-      <SocialIcon src={`${IMAGES_URL}/facebook-logo.png`} />
-      <SocialIcon src={`${IMAGES_URL}/instagram-logo.png`} />
-      <SocialIcon src={`${IMAGES_URL}/youtube-logo.png`} />
+      <a
+        href="https://www.facebook.com/InQuartet-1971646383052816/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <SocialIcon src={`${IMAGES_URL}/facebook-logo.png`} />
+      </a>
+      <a
+        href="https://www.instagram.com/inquartet"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <SocialIcon src={`${IMAGES_URL}/instagram-logo.png`} />
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UCXPjoXURR7a35aumpPExozQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <SocialIcon src={`${IMAGES_URL}/youtube-logo.png`} />
+      </a>
     </SocialIconsHolder>
   );
 };
