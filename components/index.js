@@ -2,10 +2,6 @@ export { Header } from './Header';
 export { Footer } from './Footer';
 export { Layout } from './Layout';
 export { Navigation } from './Navigation';
-export { TeamGallery } from './TeamGallery';
-export { PhotoGallery } from './PhotoGallery';
-export { VideoGallery } from './VideoGallery';
-export { AudioPlayer } from './AudioPlayer';
 
 export { IntroSection } from './IntroSection';
 export { AboutUsSection } from './AboutUsSection';

@@ -115,7 +115,7 @@ const ReactiveBox = styled(GenericItem)`
   }
 `;
 
-export class TeamGallery extends Component {
+class TeamGallery extends Component {
   state = { isTranslated: false, activeRow: 0 };
 
   toggleEvenRowClick = id => {
@@ -278,3 +278,5 @@ TeamGallery.propTypes = {
     }),
   ),
 };
+
+export default TeamGallery;

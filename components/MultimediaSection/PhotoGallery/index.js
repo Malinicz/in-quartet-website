@@ -22,7 +22,7 @@ const dataSet2 = [
   { imageUrl: `${baseUrl}/photo8.jpg`, isHorizontal: true },
 ];
 
-export class PhotoGallery extends Component {
+class PhotoGallery extends Component {
   constructor(props) {
     super(props);
     this.state = { isTranslated: true, activeRow: { 0: 0, 1: -1 } };
@@ -80,3 +80,5 @@ export class PhotoGallery extends Component {
     );
   }
 }
+
+export default PhotoGallery;

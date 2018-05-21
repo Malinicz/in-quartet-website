@@ -76,7 +76,7 @@ const Title = styled.h4`
   margin: 0;
 `;
 
-export const VideoGallery = ({ videos }) => {
+const VideoGallery = ({ videos }) => {
   return (
     <VideoGalleryHolder>
       {videos.map((video, index) => {
@@ -111,3 +111,5 @@ VideoGallery.propTypes = {
     }),
   ),
 };
+
+export default VideoGallery;

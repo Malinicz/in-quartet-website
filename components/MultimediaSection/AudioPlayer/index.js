@@ -22,7 +22,7 @@ const MainPlayerHolder = styled.div`
   }
 `;
 
-export class AudioPlayer extends Component {
+class AudioPlayer extends Component {
   constructor(props) {
     super(props);
     this.audio = null;
@@ -196,3 +196,5 @@ export class AudioPlayer extends Component {
 AudioPlayer.propTypes = {
   songList: arrayOf(object).isRequired,
 };
+
+export default AudioPlayer;

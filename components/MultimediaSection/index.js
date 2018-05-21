@@ -9,7 +9,9 @@ import {
   SectionTitle,
   Background,
 } from '~/components/ui';
-import { PhotoGallery, VideoGallery, AudioPlayer } from '~/components';
+import AudioPlayer from './AudioPlayer';
+import PhotoGallery from './PhotoGallery';
+import VideoGallery from './VideoGallery';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 150px;

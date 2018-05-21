@@ -11,7 +11,7 @@ import {
   DescriptionContent,
   Background,
 } from '~/components/ui';
-import { TeamGallery } from '~/components';
+import TeamGallery from './TeamGallery';
 
 const SectionPeople = styled.section`
   grid-area: content;
