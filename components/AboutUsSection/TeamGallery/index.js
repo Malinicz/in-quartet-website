@@ -53,6 +53,7 @@ const GenericItem = styled.div`
   position: relative;
   width: 20%;
   transition: 0.3s ease all;
+  transform: translate3d(0, 0, 0);
 
   &::before {
     content: '';
