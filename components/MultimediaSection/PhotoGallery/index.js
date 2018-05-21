@@ -25,14 +25,53 @@ const dataSet2 = [
 class PhotoGallery extends Component {
   constructor(props) {
     super(props);
+    this.photoGalleryInterval = null;
+    this.photoGalleryDelay = null;
     this.state = { isTranslated: true, activeRow: { 0: 0, 1: -1 } };
   }
+
+  componentDidMount() {
+    this.setPhotoGalleryInterval();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.photoGalleryInterval);
+    clearTimeout(this.photoGalleryDelay);
+  }
+
+  setPhotoGalleryInterval = () => {
+    this.photoGalleryInterval = setInterval(() => {
+      clearTimeout(this.photoGalleryDelay);
+      const nextInFirstRow = Math.floor(Math.random() * 4) - 1;
+      const nextInSecondRow =
+        nextInFirstRow === -1 ? Math.floor(Math.random() * 3) : -1;
+
+      const isTranslated =
+        this.isRowEven(nextInFirstRow) || this.isRowEven(nextInSecondRow);
+
+      this.setState({
+        activeRow: { 0: nextInFirstRow, 1: nextInSecondRow },
+        isTranslated,
+      });
+    }, 3000);
+  };
+
+  isRowEven = number => {
+    if (number === -1) return false;
+    return number % 2 !== 1;
+  };
 
   onTranslate = isTranslated => {
     this.setState({ isTranslated });
   };
 
   togglePhotoClick = (chunkId, photoId, isPhotoHorizontal) => {
+    clearInterval(this.photoGalleryInterval);
+    clearTimeout(this.photoGalleryDelay);
+    this.photoGalleryDelay = setTimeout(() => {
+      this.setPhotoGalleryInterval();
+    }, 5000);
+
     this.setState(prevState => {
       const chunkActiveRow =
         photoId === prevState.activeRow[chunkId] ? -1 : photoId;
