@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from '~/styles';
 
 import GalleryChunk from './GalleryChunk';
 
@@ -21,6 +22,8 @@ const dataSet2 = [
   { imageUrl: `${baseUrl}/photo7.jpg`, isHorizontal: true },
   { imageUrl: `${baseUrl}/photo8.jpg`, isHorizontal: true },
 ];
+
+const PhotoGalleryHolder = styled.div``;
 
 class PhotoGallery extends Component {
   constructor(props) {
@@ -98,7 +101,7 @@ class PhotoGallery extends Component {
     const { isTranslated, activeRow } = this.state;
 
     return (
-      <React.Fragment>
+      <PhotoGalleryHolder>
         <GalleryChunk
           chunkId={0}
           data={dataSet1}
@@ -115,7 +118,7 @@ class PhotoGallery extends Component {
           handlePhotoClick={this.togglePhotoClick}
           isTranslated={isTranslated}
         />
-      </React.Fragment>
+      </PhotoGalleryHolder>
     );
   }
 }
