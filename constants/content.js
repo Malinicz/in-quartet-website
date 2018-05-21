@@ -1,5 +1,6 @@
 /* eslint-disable */ import { IMAGES_URL } from '~/constants/paths';
 import { EN, PL } from '~/constants/supportedLanguages';
+import { AUDIO_URL } from '~/constants/paths';
 
 const ABOUT_US_URL = `${IMAGES_URL}/about-us`;
 
@@ -87,6 +88,18 @@ export default {
           subtitle: "I don't wanna miss a thing",
           videoUrl:
             'https://www.youtube.com/embed/ghxoAA99mcw?rel=0&amp;showinfo=0',
+        },
+      ],
+      audio: [
+        {
+          title: 'Kompilacja utworów',
+          duration: 160,
+          url: `${AUDIO_URL}/medley.mp3`,
+        },
+        {
+          title: "I don't wanna miss a thing",
+          duration: 242,
+          url: `${AUDIO_URL}/aerosmith.mp3`,
         },
       ],
     },
@@ -192,6 +205,18 @@ export default {
           subtitle: "I don't wanna miss a thing",
           videoUrl:
             'https://www.youtube.com/embed/ghxoAA99mcw?rel=0&amp;showinfo=0',
+        },
+      ],
+      audio: [
+        {
+          title: 'Songs compilation',
+          duration: 160,
+          url: `${AUDIO_URL}/medley.mp3`,
+        },
+        {
+          title: "I don't wanna miss a thing",
+          duration: 242,
+          url: `${AUDIO_URL}/aerosmith.mp3`,
         },
       ],
     },

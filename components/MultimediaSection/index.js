@@ -73,7 +73,7 @@ export class MultimediaSection extends Component {
           <StyledBackground />
         </StyledSectionDescription>
         <ContentSection>
-          <AudioPlayer />
+          <AudioPlayer songList={data.audio} />
           <VideoGallery videos={data.videos} />
           <PhotoGallery />
         </ContentSection>

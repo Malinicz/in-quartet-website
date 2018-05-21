@@ -2,6 +2,13 @@ import React, { PureComponent } from 'react';
 import { number, func } from 'prop-types';
 import styled from '~/styles';
 
+import { formatSongLength } from './helpers';
+
+const ProgressBarHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const CurrentTime = styled.div`
   align-self: flex-end;
   margin-bottom: 10px;
@@ -31,7 +38,7 @@ const PlayedProgress = styled.div`
   left: 0;
   bottom: 0;
   background-color: ${props => props.theme.colors.primaryDark};
-  transition: 0.7s width ease;
+  transition: 0.3s width linear;
 `;
 
 const Circle = styled.div`
@@ -45,22 +52,13 @@ const Circle = styled.div`
 `;
 
 class ProgressBar extends PureComponent {
-  formatSongLength = timeInSeconds => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds - minutes * 60;
-    const formattedMinutes = minutes >= 10 ? minutes : `0${minutes}`;
-    const formattedSeconds = seconds >= 10 ? seconds : `0${seconds}`;
-    return `${formattedMinutes}:${formattedSeconds}`;
-  };
-
-  //TODO refactor this
   onProgressClick = e => {
     const { currentSongLength } = this.props;
-    const leftWidth = (window.innerWidth - e.target.offsetWidth) / 2;
-    const width = e.target.offsetWidth;
-    const xPosition = e.pageX;
+    const progressBarWidth = e.target.offsetWidth;
+    const leftSpaceWidth = (window.innerWidth - progressBarWidth) / 2;
+    const xMousePosition = e.pageX;
     const currentTime = Math.floor(
-      (xPosition - leftWidth) / width * currentSongLength,
+      (xMousePosition - leftSpaceWidth) / progressBarWidth * currentSongLength,
     );
     this.props.handleSetCurrentTime(currentTime);
   };
@@ -70,17 +68,15 @@ class ProgressBar extends PureComponent {
     const progressBarWidth = currentTime / currentSongLength * 100;
 
     return (
-      <React.Fragment>
-        <CurrentTime>
-          {this.formatSongLength(Math.ceil(currentTime))}
-        </CurrentTime>
+      <ProgressBarHolder>
+        <CurrentTime>{formatSongLength(Math.ceil(currentTime))}</CurrentTime>
         <Progress>
           <HiddenProgress onClick={this.onProgressClick} />
           <PlayedProgress style={{ width: `${progressBarWidth}%` }}>
             <Circle />
           </PlayedProgress>
         </Progress>
-      </React.Fragment>
+      </ProgressBarHolder>
     );
   }
 }

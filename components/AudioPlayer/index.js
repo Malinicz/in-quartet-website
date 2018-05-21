@@ -1,12 +1,13 @@
 /* eslint-disable quotes */
-//TODO refactor - move to separate components
 
 import React, { Component } from 'react';
+import { arrayOf, object } from 'prop-types';
 import styled from '~/styles';
 
 import ProgressBar from './ProgressBar';
-
-import { IMAGES_URL } from '~/constants/paths';
+import SongList from './SongList';
+import Controls from './Controls';
+import VolumeControl from './VolumeControl';
 
 const AudioPlayerHolder = styled.div`
   margin: 30px 0 70px 0;
@@ -21,198 +22,68 @@ const MainPlayerHolder = styled.div`
   }
 `;
 
-const SongList = styled.div`
-  flex: 3;
-`;
-
-const Controls = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 3;
-  margin-bottom: 30px;
-`;
-
-const SongTable = styled.table`
-  width: 100%;
-  color: ${props => props.theme.colors.darkLight};
-  margin-bottom: 30px;
-  table-layout: fixed;
-`;
-
-const SongTableRow = styled.tr`
-  color: ${props =>
-    props.isActive
-      ? props.theme.colors.primaryDark
-      : props.theme.colors.darkLight};
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-  }
-`;
-
-const SongTitleCell = styled.td``;
-
-const SongLengthCell = styled.td`
-  width: 20%;
-  text-align: right;
-  vertical-align: top;
-`;
-
-const ControlButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  background-color: ${props => props.theme.colors.primary};
-  transition: 0.3s ease all;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-  }
-`;
-
-const PlayPause = styled(ControlButton)`
-  width: 70px;
-  height: 70px;
-`;
-
-const ControlIcon = styled.img`
-  width: 50%;
-`;
-
-const PreviousTrack = styled(ControlButton)``;
-
-const NextTrack = styled(ControlButton)``;
-
-const VolumeControl = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex: 3;
-  margin-bottom: 30px;
-
-  @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
-    flex-direction: row;
-  }
-
-  @media (max-width: 500px) {
-    display: none;
-  }
-`;
-
-const VolumeSquaresHolder = styled.div`
-  display: flex;
-`;
-
-const VolumeSquare = styled(ControlButton)`
-  width: 15px;
-  height: 15px;
-  background-color: ${props =>
-    props.isSelected
-      ? props.theme.colors.primaryDark
-      : props.theme.colors.lightDark};
-`;
-
-const VolumeIcon = styled.img`
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 30px;
-`;
-
-const ProgressBarHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const TRACKS = [
-  {
-    title: 'Kompilacja utworów',
-    length: '02:40',
-    url: '/static/audio/medley.mp3',
-  },
-  {
-    title: "I don't wanna miss a thing",
-    length: '04:02',
-    url: '/static/audio/aerosmith.mp3',
-  },
-];
-
 export class AudioPlayer extends Component {
   constructor(props) {
     super(props);
     this.audio = null;
     this.progressBarInterval = null;
+
     this.state = {
       isLoading: false,
       isPlaying: false,
       currentTrack: 0,
       currentVolume: 1,
       currentTime: 0,
-      currentSongLength: 160,
+      currentSongLength: props.songList[0].duration,
     };
   }
 
+  componentDidMount() {
+    if (this.audio) {
+      this.audio.src = this.props.songList[0].url;
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.progressBarInterval);
+  }
+
   onPlayPauseClick = () => {
-    this.setState(prevState => {
-      prevState.isPlaying ? this.pauseAudio() : this.playPausedAudio();
-      return {
-        isPlaying: !prevState.isPlaying,
-      };
-    });
+    this.state.isPlaying ? this.pauseAudio() : this.playAudio();
   };
 
   onNextTrackClick = () => {
-    this.setState(prevState => {
-      const tracksLength = TRACKS.length;
-      const nextTrack =
-        prevState.currentTrack === tracksLength - 1
-          ? 0
-          : prevState.currentTrack + 1;
-      this.playAudio(nextTrack);
-
-      return {
-        isPlaying: true,
-        currentTrack: nextTrack,
-      };
-    });
+    const tracksLength = this.props.songList.length;
+    const { currentTrack } = this.state;
+    const nextTrack = currentTrack === tracksLength - 1 ? 0 : currentTrack + 1;
+    this.playAudioFromStart(nextTrack);
   };
 
   onPrevTrackClick = () => {
-    this.setState(prevState => {
-      const tracksLength = TRACKS.length;
-      const prevTrack =
-        prevState.currentTrack === 0
-          ? tracksLength - 1
-          : prevState.currentTrack - 1;
-      this.playAudio(prevTrack);
-
-      return {
-        isPlaying: true,
-        currentTrack: prevTrack,
-      };
-    });
+    const tracksLength = this.props.songList.length;
+    const { currentTrack } = this.state;
+    const prevTrack = currentTrack === 0 ? tracksLength - 1 : currentTrack - 1;
+    this.playAudioFromStart(prevTrack);
   };
 
-  playAudio = trackNumber => {
-    this.audio.pause();
-    this.audio.src = TRACKS[trackNumber].url;
-    this.audio.load();
-    this.audio.play();
-    this.setProgressBarInterval();
+  playAudioFromStart = trackNumber => {
+    if (this.audio) {
+      this.audio.pause();
+      this.audio.src = this.props.songList[trackNumber].url;
+      this.audio.load();
+      this.audio.play();
+      this.setState({ isPlaying: true, currentTrack: trackNumber });
+      this.setProgressBarInterval();
+    }
   };
 
   setProgressBarInterval = () => {
+    this.clearProgressBarInterval();
     this.progressBarInterval = setInterval(() => {
       if (this.audio.readyState !== 4) {
         return this.setState({ isLoading: true });
       }
       if (this.audio.ended) {
-        this.clearProgressBarInterval();
         this.onNextTrackClick();
       }
       this.setState({
@@ -227,49 +98,52 @@ export class AudioPlayer extends Component {
     clearInterval(this.progressBarInterval);
   };
 
-  pauseAudio = () => {
-    this.audio.pause();
-    this.clearProgressBarInterval();
+  playAudio = () => {
+    if (this.audio) {
+      this.audio.play();
+      this.setState({ isPlaying: true });
+      this.setProgressBarInterval();
+    }
   };
 
-  playPausedAudio = () => {
-    this.setProgressBarInterval();
-    this.audio.play();
+  pauseAudio = () => {
+    if (this.audio) {
+      this.audio.pause();
+      this.setState({ isPlaying: false });
+      this.clearProgressBarInterval();
+    }
   };
 
   onSongClick = trackNumber => {
-    this.playAudio(trackNumber);
+    this.playAudioFromStart(trackNumber);
     this.setState({ isPlaying: true, currentTrack: trackNumber });
-  };
-
-  getVolumeSquares = () => {
-    const volume = this.state.currentVolume;
-    let result = [];
-    for (let i = 0; i < 10; i++) {
-      const isSelected = i / 10 <= volume;
-      result.push(
-        <VolumeSquare
-          id={i / 10}
-          key={i}
-          onClick={this.setVolume}
-          isSelected={isSelected}
-        />,
-      );
-    }
-    return result;
   };
 
   setVolume = e => {
     if (this.audio) {
       this.audio.volume = e.target.id;
-      this.setState({ currentVolume: e.target.id });
+      this.setState({ currentVolume: parseFloat(e.target.id) });
     }
   };
 
   setCurrentTime = currentTime => {
-    if (currentTime >= 0 && currentTime <= this.state.currentSongLength) {
+    if (
+      this.audio &&
+      currentTime >= 0 &&
+      currentTime <= this.state.currentSongLength
+    ) {
       this.audio.currentTime = currentTime;
       this.setState({ currentTime });
+    }
+  };
+
+  toggleVolumeMute = () => {
+    if (this.audio) {
+      this.setState(prevState => {
+        const currentVolume = prevState.currentVolume === 0 ? 1 : 0;
+        this.audio.volume = currentVolume;
+        return { currentVolume };
+      });
     }
   };
 
@@ -280,67 +154,45 @@ export class AudioPlayer extends Component {
       currentTrack,
       currentSongLength,
       currentTime,
+      currentVolume,
     } = this.state;
+
+    const { songList } = this.props;
 
     return (
       <AudioPlayerHolder>
         <MainPlayerHolder>
-          <SongList>
-            <SongTable>
-              <tbody>
-                {TRACKS.map((track, index) => {
-                  const isActive = index === currentTrack;
-                  return (
-                    <SongTableRow
-                      key={track.title}
-                      isActive={isActive}
-                      onClick={() => this.onSongClick(index)}
-                    >
-                      <SongTitleCell>
-                        {index + 1}. {track.title}
-                      </SongTitleCell>
-                      <SongLengthCell>{track.length}</SongLengthCell>
-                    </SongTableRow>
-                  );
-                })}
-              </tbody>
-            </SongTable>
-          </SongList>
-          <Controls>
-            <PreviousTrack onClick={this.onPrevTrackClick}>
-              <ControlIcon src={`${IMAGES_URL}/previous-icon.svg`} />
-            </PreviousTrack>
-            <PlayPause onClick={this.onPlayPauseClick}>
-              <ControlIcon
-                src={`${IMAGES_URL}/${
-                  isLoading
-                    ? 'loader.svg'
-                    : isPlaying
-                      ? 'pause-icon.svg'
-                      : 'play-icon.svg'
-                }`}
-              />
-            </PlayPause>
-            <NextTrack onClick={this.onNextTrackClick}>
-              <ControlIcon src={`${IMAGES_URL}/next-icon.svg`} />
-            </NextTrack>
-          </Controls>
-          <VolumeControl>
-            <VolumeSquaresHolder>{this.getVolumeSquares()}</VolumeSquaresHolder>
-            <VolumeIcon src={`${IMAGES_URL}/volume-icon.svg`} />
-          </VolumeControl>
-        </MainPlayerHolder>
-        <ProgressBarHolder>
-          <ProgressBar
-            currentTime={currentTime}
-            currentSongLength={currentSongLength}
-            handleSetCurrentTime={this.setCurrentTime}
+          <SongList
+            currentTrack={currentTrack}
+            songList={songList}
+            handleSongClick={this.onSongClick}
           />
-        </ProgressBarHolder>
+          <Controls
+            isLoading={isLoading}
+            isPlaying={isPlaying}
+            handlePlayPauseClick={this.onPlayPauseClick}
+            handleNextTrackClick={this.onNextTrackClick}
+            handlePrevTrackClick={this.onPrevTrackClick}
+          />
+          <VolumeControl
+            currentVolume={currentVolume}
+            toggleVolumeMute={this.toggleVolumeMute}
+            handleSetVolume={this.setVolume}
+          />
+        </MainPlayerHolder>
+        <ProgressBar
+          currentTime={currentTime}
+          currentSongLength={currentSongLength}
+          handleSetCurrentTime={this.setCurrentTime}
+        />
         <audio ref={audio => (this.audio = audio)}>
-          <source src={TRACKS[0].url} />
+          <source />
         </audio>
       </AudioPlayerHolder>
     );
   }
 }
+
+AudioPlayer.propTypes = {
+  songList: arrayOf(object).isRequired,
+};
