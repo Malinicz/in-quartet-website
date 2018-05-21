@@ -6,7 +6,6 @@ import { IMAGES_URL } from '~/constants/paths';
 const SocialIconsHolder = styled.div`
   display: flex;
   justify-content: flex-end;
-  z-index: 1;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     padding-bottom: 50px;

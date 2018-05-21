@@ -92,6 +92,7 @@ const Title = styled(H1)`
 const SocialIconsHolder = styled.div`
   display: none;
   margin-bottom: 20px;
+  z-index: 1;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     display: block;
