@@ -97,6 +97,10 @@ const VolumeControl = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.tablet}px) {
     flex-direction: row;
   }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const VolumeSquaresHolder = styled.div`
@@ -142,6 +146,7 @@ export class AudioPlayer extends Component {
     this.audio = null;
     this.progressBarInterval = null;
     this.state = {
+      isLoading: false,
       isPlaying: false,
       currentTrack: 0,
       currentVolume: 1,
@@ -201,6 +206,9 @@ export class AudioPlayer extends Component {
 
   setProgressBarInterval = () => {
     this.progressBarInterval = setInterval(() => {
+      if (this.audio.readyState !== 4) {
+        return this.setState({ isLoading: true });
+      }
       if (this.audio.ended) {
         this.clearProgressBarInterval();
         this.onNextTrackClick();
@@ -208,6 +216,7 @@ export class AudioPlayer extends Component {
       this.setState({
         currentTime: this.audio.currentTime,
         currentSongLength: this.audio.duration,
+        isLoading: false,
       });
     }, 1000);
   };
@@ -265,6 +274,7 @@ export class AudioPlayer extends Component {
   render() {
     const {
       isPlaying,
+      isLoading,
       currentTrack,
       currentSongLength,
       currentTime,
@@ -301,7 +311,11 @@ export class AudioPlayer extends Component {
             <PlayPause onClick={this.onPlayPauseClick}>
               <ControlIcon
                 src={`${IMAGES_URL}/${
-                  isPlaying ? 'pause-icon.svg' : 'play-icon.svg'
+                  isLoading
+                    ? 'loader.svg'
+                    : isPlaying
+                      ? 'pause-icon.svg'
+                      : 'play-icon.svg'
                 }`}
               />
             </PlayPause>
