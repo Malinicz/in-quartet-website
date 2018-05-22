@@ -6,7 +6,14 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/en': { page: '/en' },
-      '/email-send-success': { page: '/email-send-success' },
+      '/email-send-success': {
+        page: '/email-send-success',
+        query: { language: 'pl' },
+      },
+      '/en/email-send-success': {
+        page: '/email-send-success',
+        query: { language: 'en' },
+      },
     };
   },
 };

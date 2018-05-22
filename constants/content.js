@@ -6,6 +6,7 @@ const ABOUT_US_URL = `${IMAGES_URL}/about-us`;
 
 export default {
   [PL]: {
+    language: PL,
     navigation: {
       aboutUs: { label: 'o kwartecie', value: 'about-us' },
       ourOffer: { label: 'oferta', value: 'offer' },
@@ -121,8 +122,14 @@ export default {
         content: 'Treść wiadomości *',
       },
     },
+    emailSendSuccess: {
+      title: 'Wiadomość wysłana!',
+      subtitle: 'Postaramy się odpowiedzieć jak najszybciej :)',
+      link: 'Wróć do strony głównej',
+    },
   },
   [EN]: {
+    language: EN,
     navigation: {
       aboutUs: { label: 'about us', value: 'about-us' },
       ourOffer: { label: 'our offer', value: 'offer' },
@@ -237,6 +244,11 @@ export default {
         name: 'Name',
         content: 'Message *',
       },
+    },
+    emailSendSuccess: {
+      title: 'Message sent!',
+      subtitle: 'We will come back to you as soon as we can :)',
+      link: 'Back to the home page',
     },
   },
 };

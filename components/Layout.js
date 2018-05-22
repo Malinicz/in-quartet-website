@@ -56,6 +56,7 @@ export class Layout extends Component {
             />
             <ContactSection
               data={data.contact}
+              language={data.language}
               sectionId={data.navigation.contact.value}
             />
           </Main>

@@ -143,7 +143,7 @@ export class ContactSection extends Component {
 
   render() {
     const { isEmailValid } = this.state;
-    const { sectionId, data } = this.props;
+    const { sectionId, data, language } = this.props;
     const { description, form, contact1, contact2 } = data;
 
     return (
@@ -192,7 +192,11 @@ export class ContactSection extends Component {
               <input
                 type="hidden"
                 name="_next"
-                value={`${SITE_URL}/email-send-success?language=${PL}`}
+                value={`${SITE_URL}/${
+                  language === PL
+                    ? 'email-send-success'
+                    : 'en/email-send-success'
+                }`}
               />
               <StyledButton type="submit" disabled={!isEmailValid}>
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />
@@ -208,6 +212,7 @@ export class ContactSection extends Component {
 
 ContactSection.propTypes = {
   data: object.isRequired,
+  language: string,
   sectionId: string.isRequired,
 };
 

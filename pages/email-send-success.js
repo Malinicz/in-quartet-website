@@ -2,24 +2,11 @@ import React, { Component } from 'react';
 import styled from '~/styles';
 import theme from '~/styles/theme';
 import Link from 'next/link';
-import Router from 'next/router';
 import { object } from 'prop-types';
 
 import { IMAGES_URL } from '~/constants/paths';
-import { SUPPORTED_LANGUAGES, PL, EN } from '~/constants/supportedLanguages';
-
-const content = {
-  [PL]: {
-    title: 'Wiadomość wysłana!',
-    subtitle: 'Postaramy się odpowiedzieć jak najszybciej :)',
-    link: 'Wróć do strony głównej',
-  },
-  [EN]: {
-    title: 'Message sent!',
-    subtitle: 'We will come back to you as soon as we can :)',
-    link: 'Back to the home page',
-  },
-};
+import { PL } from '~/constants/supportedLanguages';
+import content from '~/constants/content';
 
 const EmailSendSuccessHolder = styled.div`
     display: flex;
@@ -56,30 +43,19 @@ const LinkElement = styled.a`
 `;
 
 class EmailSendSuccess extends Component {
-  componentDidMount() {
-    if (!this.hasValidLanguageParam()) {
-      return Router.push('/');
-    }
-  }
-
-  hasValidLanguageParam = () => {
-    const { language } = this.props.url.query;
-    return SUPPORTED_LANGUAGES.includes(language);
-  };
-
   render() {
     const { language } = this.props.url.query;
 
-    if (!this.hasValidLanguageParam()) return null;
+    const data = content[language].emailSendSuccess;
 
     return (
       <EmailSendSuccessHolder>
         <Message>
           <Logo src={`${IMAGES_URL}/logo-black.svg`} />
-          <MessageHeader>{content[language].title}</MessageHeader>
-          {content[language].subtitle}
-          <Link href="/">
-            <LinkElement>{content[language].link}</LinkElement>
+          <MessageHeader>{data.title}</MessageHeader>
+          {data.subtitle}
+          <Link href={language === PL ? '/' : '/en'}>
+            <LinkElement>{data.link}</LinkElement>
           </Link>
         </Message>
       </EmailSendSuccessHolder>
