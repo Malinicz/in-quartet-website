@@ -76,14 +76,14 @@ export const Footer = ({ navigationConfig }) => {
           <img src={`${IMAGES_URL}/logo-black.svg`} />
           <Navigation>
             <MenuItemsHolder>
-              {Object.values(navigationConfig).map(navItem => (
-                <MenuItem key={navItem.value}>
+              {Object.keys(navigationConfig).map(navItem => (
+                <MenuItem key={navigationConfig[navItem].value}>
                   <LinkElement
-                    to={navItem.value}
+                    to={navigationConfig[navItem].value}
                     smooth={true}
-                    title={navItem.label}
+                    title={navigationConfig[navItem].label}
                   >
-                    {navItem.label}
+                    {navigationConfig[navItem].label}
                   </LinkElement>
                 </MenuItem>
               ))}

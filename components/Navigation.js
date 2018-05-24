@@ -142,14 +142,17 @@ export const Navigation = ({
       <Block top="70%" height="20%" isVisible={isVisible} />
       <Block top="90%" height="10%" isVisible={isVisible} />
       <MenuItemsHolder isVisible={isVisible}>
-        {Object.values(navigationConfig).map(navItem => (
-          <MenuItem key={navItem.value} title={navItem.label}>
+        {Object.keys(navigationConfig).map(navItem => (
+          <MenuItem
+            key={navigationConfig[navItem].value}
+            title={navigationConfig[navItem].label}
+          >
             <LinkElement
-              to={navItem.value}
+              to={navigationConfig[navItem].value}
               smooth="true"
               onClick={handleToggleMenu}
             >
-              {navItem.label}
+              {navigationConfig[navItem].label}
             </LinkElement>
           </MenuItem>
         ))}

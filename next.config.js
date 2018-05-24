@@ -1,7 +1,7 @@
-const { PROJECT_NAME } = require('./constants/projectConfig');
+const { FOLDER_PATH } = require('./constants/projectConfig');
 
 module.exports = {
-  assetPrefix: process.env.NODE_ENV === 'production' ? `/${PROJECT_NAME}` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `${FOLDER_PATH}` : '',
   exportPathMap: function() {
     return {
       '/': { page: '/' },

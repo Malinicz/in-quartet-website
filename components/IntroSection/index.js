@@ -100,7 +100,10 @@ const SocialIconsHolder = styled.div`
 `;
 
 export class IntroSection extends Component {
-  state = { isCrazy: false };
+  constructor(props) {
+    super(props);
+    this.state = { isCrazy: false };
+  }
 
   toggleCraziness = () => {
     this.setState(prevState => ({ isCrazy: !prevState.isCrazy }));

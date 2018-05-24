@@ -21,6 +21,7 @@ import validateEmail from './emailValidation';
 
 import { IMAGES_URL, SITE_URL } from '~/constants/paths';
 import { PL } from '~/constants/supportedLanguages';
+import { EMAIL } from '~/constants/projectConfig';
 
 const StyledSectionHolder = styled(SectionHolder)`
   padding-top: 70px;
@@ -165,10 +166,7 @@ export class ContactSection extends Component {
             </ContactPhone>
           </ContactDetails>
 
-          <StyledForm
-            action="https://formspree.io/malinicz@gmail.com"
-            method="POST"
-          >
+          <StyledForm action={`https://formspree.io/${EMAIL}`} method="POST">
             <UserDetails>
               <LabelWithInputHolder>
                 <InputLabel>{form.email}</InputLabel>
@@ -198,6 +196,13 @@ export class ContactSection extends Component {
                     : 'en/email-send-success'
                 }`}
               />
+              <input
+                type="hidden"
+                name="_subject"
+                value="[INQUARTET.PL] Zapytanie"
+              />
+              <input type="hidden" name="_format" value="plain" />
+              <input type="hidden" name="_language" value={language} />
               <StyledButton type="submit" disabled={!isEmailValid}>
                 <SubmitIcon src={`${IMAGES_URL}/submit-icon.png`} />
               </StyledButton>
