@@ -50,8 +50,9 @@ const MenuItemsHolder = styled.ul`
   position: absolute;
   z-index: 12;
   top: 50%;
+  left: 50%;
   padding: 0;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   list-style-type: none;
   opacity: ${props => (props.isVisible ? 1 : 0)};
   transition: 0.3s ease opacity;
@@ -64,6 +65,7 @@ const MenuItemsHolder = styled.ul`
 const MenuItem = styled.li`
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   &:first-child {
     &::before {

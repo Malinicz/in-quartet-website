@@ -17,6 +17,8 @@ export const SectionHolder = styled(Section)`
     '. description .'
     '. content .';
   padding-top: 100px;
+  max-width: ${props => props.theme.maxWidth}px;
+  margin: 0 auto;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     padding-top: 0;

@@ -87,6 +87,7 @@ const PhotoBox = styled(GenericItem)`
 
 const DescriptionBox = styled(GenericItem)`
   position: relative;
+  display: flex;
   z-index: 2;
   width: ${props => (props.isActive ? '60%' : '20%')};
   cursor: pointer;
