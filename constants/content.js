@@ -93,14 +93,29 @@ export default {
       ],
       audio: [
         {
-          title: 'Kompilacja utworów',
-          duration: 160,
-          url: `${AUDIO_URL}/medley.mp3`,
+          title: 'Aria',
+          duration: 54,
+          url: `${AUDIO_URL}/aria.mp3`,
+        },
+        {
+          title: 'Cabesa',
+          duration: 38,
+          url: `${AUDIO_URL}/cabesa.mp3`,
+        },
+        {
+          title: 'Eine kleine nachtmusik',
+          duration: 31,
+          url: `${AUDIO_URL}/eine-kleine-nachtmusik.mp3`,
         },
         {
           title: "I don't wanna miss a thing",
-          duration: 242,
-          url: `${AUDIO_URL}/aerosmith.mp3`,
+          duration: 235,
+          url: `${AUDIO_URL}/i-dont-wanna-miss-a-thing.mp3`,
+        },
+        {
+          title: 'Kanon D-dur',
+          duration: 42,
+          url: `${AUDIO_URL}/kanon.mp3`,
         },
       ],
     },
@@ -216,14 +231,29 @@ export default {
       ],
       audio: [
         {
-          title: 'Songs compilation',
-          duration: 160,
-          url: `${AUDIO_URL}/medley.mp3`,
+          title: 'Aria',
+          duration: 54,
+          url: `${AUDIO_URL}/aria.mp3`,
+        },
+        {
+          title: 'Cabesa',
+          duration: 38,
+          url: `${AUDIO_URL}/cabesa.mp3`,
+        },
+        {
+          title: 'Eine kleine nachtmusik',
+          duration: 31,
+          url: `${AUDIO_URL}/eine-kleine-nachtmusik.mp3`,
         },
         {
           title: "I don't wanna miss a thing",
-          duration: 242,
-          url: `${AUDIO_URL}/aerosmith.mp3`,
+          duration: 235,
+          url: `${AUDIO_URL}/i-dont-wanna-miss-a-thing.mp3`,
+        },
+        {
+          title: 'Canon in D',
+          duration: 42,
+          url: `${AUDIO_URL}/kanon.mp3`,
         },
       ],
     },
