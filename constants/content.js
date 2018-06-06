@@ -21,7 +21,7 @@ export default {
         subtitle:
           'Jesteśmy absolwentkami najlepszych Akademii Muzycznych w kraju, kształconymi u wybitnych profesorów.',
         body:
-          'Każda może się poszczycić nagrodami w konkursach solowych i kameralnych oraz kursami mistrzowskimi u najlepszych pedagogów z Polski i świata.Co równie ważne, od lat wykonujemy swój zawód w praktyce, współpracując z czołowymi orkiestrami i wykonawcami przy projektach koncertowych i nagraniach, niejednokrotnie grając na scenie z gwiazdami polskiej muzyki rozrywkowej, Edytą Górniak, Sebastianem Karpielem - Bułecką, Kubą Badachem, Justyną Steczkowską, Kayah i innymi.',
+          'Każda może się poszczycić nagrodami w konkursach solowych i kameralnych oraz kursami mistrzowskimi u najlepszych pedagogów z Polski i świata. Co równie ważne, od lat wykonujemy swój zawód w praktyce, współpracując z czołowymi orkiestrami i wykonawcami przy projektach koncertowych i nagraniach, niejednokrotnie grając na scenie z gwiazdami polskiej muzyki rozrywkowej, Edytą Górniak, Sebastianem Karpielem - Bułecką, Kubą Badachem, Justyną Steczkowską, Kayah i innymi.',
       },
       people: {
         1: {
@@ -43,14 +43,14 @@ export default {
           title: 'Justyna',
           subtitle: 'altówka',
           body:
-            'Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje z wieloma krakowskimi orkiestrami, jest też stażystką drugiej edycji Akademii Baltic Neopolis Orchestra.Lubi stawiać sobie wyzwania. Dyplomowana altowiolistka, a wkrótce także skrzypaczka.',
+            'Ciągle w ruchu i nieraz cieżko za nią nadążyć. Współpracuje z wieloma krakowskimi orkiestrami, jest też stażystką drugiej edycji Akademii Baltic Neopolis Orchestra. Lubi stawiać sobie wyzwania. Dyplomowana altowiolistka, a wkrótce także skrzypaczka.',
         },
         4: {
           imageUrl: `${ABOUT_US_URL}/dominika.jpg`,
           title: 'Dominika',
           subtitle: 'wiolonczela',
           body:
-            'Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze daje impuls do działania i jest solidną bazą zespołu.Jej pasją jest muzyka kameralna, na której polu zdobywa liczne laury.W wolnym czasie uwielbia chodzić po górach.Od niedawna krakowianka.',
+            'Nasza wiolonczelistka. Perfekcjonistka w każdym calu, zawsze daje impuls do działania i jest solidną bazą zespołu. Jej pasją jest muzyka kameralna, na której polu zdobywa liczne laury. W wolnym czasie uwielbia chodzić po górach. Od niedawna krakowianka.',
         },
       },
     },
@@ -60,9 +60,9 @@ export default {
         subtitle: 'Eventy, śluby, bankiety...',
         body: {
           paragraph1:
-            'Oprawa muzyczna ślubu, przyjęcia, bankietu czy spotkania firmowego to tylko część okoliczności, które możemy uświetnić swoimi umiejętnościami.Niezależnie od wydarzenia gwarantujemy, że każde wykonanie będzie niepowtarzalne i na długo pozostanie w pamięci i sercach.',
+            'Oprawa muzyczna ślubu, przyjęcia, bankietu czy spotkania firmowego to tylko część okoliczności, które możemy uświetnić swoimi umiejętnościami. Niezależnie od wydarzenia gwarantujemy, że każde wykonanie będzie niepowtarzalne i na długo pozostanie w pamięci i sercach.',
           paragraph2:
-            'Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe standardy? Decyzja należy do Państwa.Ze względu na duże doświadczenie z chęcią doradzimy w kwestiach repertuarowych w zależności od okazji.Jeśli jednak mają Państwo konkretne pomysły czy marzenia związane z oprawą muzyczną swojej uroczystości lub wydarzenia - jesteśmy otwarte na propozycje.Po inspiracje zapraszamy do zakładki Multimedia.',
+            'Klasycznie, czy rozrywkowo? Muzyka filmowa… a może jazzowe standardy? Decyzja należy do Państwa. Ze względu na duże doświadczenie z chęcią doradzimy w kwestiach repertuarowych w zależności od okazji. Jeśli jednak mają Państwo konkretne pomysły czy marzenia związane z oprawą muzyczną swojej uroczystości lub wydarzenia - jesteśmy otwarte na propozycje. Po inspiracje zapraszamy do zakładki Multimedia.',
         },
       },
     },
@@ -93,12 +93,12 @@ export default {
       ],
       audio: [
         {
-          title: 'Aria',
+          title: 'Aria na strunie G',
           duration: 54,
           url: `${AUDIO_URL}/aria.mp3`,
         },
         {
-          title: 'Cabesa',
+          title: 'Por una Cabeza',
           duration: 38,
           url: `${AUDIO_URL}/cabesa.mp3`,
         },
@@ -113,7 +113,7 @@ export default {
           url: `${AUDIO_URL}/i-dont-wanna-miss-a-thing.mp3`,
         },
         {
-          title: 'Kanon D-dur',
+          title: 'Kanon Pachelbela',
           duration: 42,
           url: `${AUDIO_URL}/kanon.mp3`,
         },
@@ -231,12 +231,12 @@ export default {
       ],
       audio: [
         {
-          title: 'Aria',
+          title: 'Air on the G string',
           duration: 54,
           url: `${AUDIO_URL}/aria.mp3`,
         },
         {
-          title: 'Cabesa',
+          title: 'Por una Cabeza',
           duration: 38,
           url: `${AUDIO_URL}/cabesa.mp3`,
         },
@@ -251,7 +251,7 @@ export default {
           url: `${AUDIO_URL}/i-dont-wanna-miss-a-thing.mp3`,
         },
         {
-          title: 'Canon in D',
+          title: "Pachelbel's Canon",
           duration: 42,
           url: `${AUDIO_URL}/kanon.mp3`,
         },
