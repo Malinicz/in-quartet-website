@@ -59,8 +59,8 @@ const CrazyBackground = styled(BackgroundHolder)`
 
 const Logo = styled.div`
   position: relative;
-  width: 400px;
-  height: 80px;
+  width: 430px;
+  height: 65px;
   margin: 0;
   padding: 0;
   background-image: url('${IMAGES_URL}/logo-white.svg');
@@ -70,7 +70,7 @@ const Logo = styled.div`
   cursor: pointer;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    width: 250px;
+    width: 320px;
     height: 50px;
 
       background-image: url('${IMAGES_URL}/logo-black.svg');

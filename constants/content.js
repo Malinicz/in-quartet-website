@@ -157,7 +157,7 @@ export default {
       description: {
         title: 'about us',
         subtitle:
-          'The Members of the Quartet  are graduates of the best Music Academies in the country, educated by eminent professors.',
+          'The Members of the Quartet are graduates of the best Music Academies in the country, educated by eminent professors.',
         body:
           'Each of us can proudly demonstrate prizes in solo and chamber competitions as well as master courses from the best teachers from Poland and the world. What is equally important, we have been practicing our profession for years, working with leading orchestras and performers on concert projects and recordings, and often playing on stage with stars of Polish pop music scene, for example with: Edyta Górniak, Sebastian Karpiel-Bułecka, Kuba Badakh, Justyna Steczkowska, Kayah and others.',
       },

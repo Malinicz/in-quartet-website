@@ -199,7 +199,7 @@ export class ContactSection extends Component {
               <input
                 type="hidden"
                 name="_subject"
-                value="[INQUARTET.PL] Zapytanie"
+                value="[4INQUARTET.PL] Zapytanie"
               />
               <input type="hidden" name="_format" value="plain" />
               <input type="hidden" name="_language" value={language} />

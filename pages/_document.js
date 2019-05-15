@@ -7,7 +7,7 @@ export default class InQuartetWebsite extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />),
+      sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
     return { ...page, styleTags };
@@ -18,7 +18,7 @@ export default class InQuartetWebsite extends Document {
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>In Quartet</title>
+          <title>4InQuartet</title>
           {this.props.styleTags}
         </Head>
         <body>

@@ -24,14 +24,14 @@ export const SocialIcons = () => {
   return (
     <SocialIconsHolder>
       <a
-        href="https://www.facebook.com/InQuartet-1971646383052816/"
+        href="https://www.facebook.com/4inquartet-1971646383052816/"
         target="_blank"
         rel="noopener noreferrer"
       >
         <SocialIcon src={`${IMAGES_URL}/facebook-logo.png`} />
       </a>
       <a
-        href="https://www.instagram.com/inquartet"
+        href="https://www.instagram.com/4inquartet/"
         target="_blank"
         rel="noopener noreferrer"
       >
