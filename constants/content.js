@@ -128,8 +128,8 @@ export default {
         phone: '+48 603 540 013',
       },
       contact2: {
-        name: 'Justyna Poprawska',
-        phone: '+48 501 303 089',
+        name: 'Ania Staniak',
+        phone: '+48 603 676 713',
       },
       form: {
         email: 'Email *',
@@ -266,8 +266,8 @@ export default {
         phone: '+48 603 540 013',
       },
       contact2: {
-        name: 'Justyna Poprawska',
-        phone: '+48 501 303 089',
+        name: 'Ania Staniak',
+        phone: '+48 603 676 713',
       },
       form: {
         email: 'Email *',
